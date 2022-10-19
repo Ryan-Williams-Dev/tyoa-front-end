@@ -167,23 +167,6 @@ function Header() {
       </AppBar>
       <Toolbar />
     </>
-    //   <header className="header">
-    //     <div className="logo">
-    //       <Link to="/">TYOA</Link>
-    //     </div>
-    //     <ul>
-    //       <li>
-    //         <Link to="/login">
-    //           <FaSignInAlt /> Login
-    //         </Link>
-    //       </li>
-    //       <li>
-    //         <Link to="/register">
-    //           <FaUser /> Register
-    //         </Link>
-    //       </li>
-    //     </ul>
-    //   </header>
   );
 }
 
