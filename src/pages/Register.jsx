@@ -1,6 +1,12 @@
 import { Box, Button, TextField, Typography } from "@mui/material";
+import { useRef } from "react";
 
 function Register() {
+  const nameRef = useRef(null);
+  const emailRef = useRef(null);
+  const passwordRef = useRef(null);
+  const passwordConfirmRef = useRef(null);
+
   const onSubmit = (e) => {
     e.preventDefault();
   };
@@ -32,10 +38,26 @@ function Register() {
           flexGrow: "1",
         }}
       >
-        <TextField type="text" required label="Name"></TextField>
-        <TextField type="email" required label="Email"></TextField>
-        <TextField type="password" required label="Password"></TextField>
         <TextField
+          inputRef={nameRef}
+          type="text"
+          required
+          label="Name"
+        ></TextField>
+        <TextField
+          inputRef={emailRef}
+          type="email"
+          required
+          label="Email"
+        ></TextField>
+        <TextField
+          inputRef={passwordRef}
+          type="password"
+          required
+          label="Password"
+        ></TextField>
+        <TextField
+          inputRef={passwordConfirmRef}
           type="password"
           required
           label="Confirm Password"
