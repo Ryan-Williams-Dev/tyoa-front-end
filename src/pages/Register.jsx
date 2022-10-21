@@ -1,5 +1,15 @@
-import { Box, Button, TextField, Typography } from "@mui/material";
-import { useRef } from "react";
+import {
+  Box,
+  Button,
+  TextField,
+  Typography,
+  CircularProgress,
+} from "@mui/material";
+import { useEffect, useRef } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { register, reset } from "../features/auth/authSlice";
 
 function Register() {
   const nameRef = useRef(null);
@@ -7,9 +17,43 @@ function Register() {
   const passwordRef = useRef(null);
   const passwordConfirmRef = useRef(null);
 
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { user, isLoading, isError, isSuccess, message } = useSelector(
+    (state) => state.auth
+  );
+
+  useEffect(() => {
+    if (isError) {
+      toast.error(message);
+    }
+
+    if (isSuccess || user) {
+      navigate("/");
+    }
+
+    dispatch(reset());
+  }, [user, isError, isSuccess, message, navigate, dispatch]);
+
   const onSubmit = (e) => {
     e.preventDefault();
+
+    if (passwordRef.current.value !== passwordConfirmRef.current.value) {
+      toast.error("Passwords do not match");
+    } else {
+      const userData = {
+        name: nameRef.current.value,
+        email: emailRef.current.value,
+        password: passwordRef.current.value,
+      };
+
+      dispatch(register(userData));
+    }
   };
+
+  if (isLoading) {
+    return <CircularProgress color="primary" />;
+  }
 
   return (
     <>
