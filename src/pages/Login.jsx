@@ -1,13 +1,52 @@
-import { Box, Button, TextField, Typography } from "@mui/material";
-import { useRef } from "react";
+import {
+  Box,
+  Button,
+  TextField,
+  Typography,
+  CircularProgress,
+} from "@mui/material";
+import { useRef, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { login, reset } from "../features/auth/authSlice";
 
 function Login() {
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
 
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { user, isLoading, isError, isSuccess, message } = useSelector(
+    (state) => state.auth
+  );
+
+  useEffect(() => {
+    if (isError) {
+      toast.error(message);
+    }
+
+    if (isSuccess || user) {
+      navigate("/");
+    }
+
+    dispatch(reset());
+  }, [user, isError, isSuccess, message, navigate, dispatch]);
+
   const onSubmit = (e) => {
     e.preventDefault();
+
+    const userData = {
+      email: emailRef.current.value,
+      password: passwordRef.current.value,
+    };
+
+    dispatch(login(userData));
   };
+
+  if (isLoading) {
+    return <CircularProgress color="primary" />;
+  }
 
   return (
     <>
