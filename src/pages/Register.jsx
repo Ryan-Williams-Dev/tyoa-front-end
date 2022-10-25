@@ -52,18 +52,36 @@ function Register() {
   };
 
   if (isLoading) {
-    return <CircularProgress color="primary" />;
+    return (
+      <Box
+        sx={{
+          marginTop: "10vh",
+          width: "100vw",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <CircularProgress size={100} color="primary" />
+      </Box>
+    );
   }
 
   return (
-    <>
+    <Box
+      sx={{
+        width: "100vw",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+      }}
+    >
       <Box
         sx={{
+          marginTop: "2em",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          justifyContent: "center",
-          flexGrow: "1",
         }}
       >
         <Typography variant="h3">Register</Typography>
@@ -79,7 +97,6 @@ function Register() {
           justifyContent: "center",
           gap: "2em",
           margin: "2em",
-          flexGrow: "1",
         }}
       >
         <TextField
@@ -110,7 +127,7 @@ function Register() {
           Register
         </Button>
       </Box>
-    </>
+    </Box>
   );
 }
 

@@ -45,13 +45,26 @@ function Login() {
   };
 
   if (isLoading) {
-    return <CircularProgress color="primary" />;
+    return (
+      <Box
+        sx={{
+          marginTop: "10vh",
+          width: "100vw",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <CircularProgress size={100} color="primary" />
+      </Box>
+    );
   }
 
   return (
     <>
       <Box
         sx={{
+          marginTop: "2em",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
