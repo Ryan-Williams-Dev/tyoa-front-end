@@ -17,7 +17,7 @@ function Welcome() {
   return (
     <Box
       sx={{
-        margin: "0",
+        position: "fixed",
         height: "100vh",
         width: "100vw",
         backgroundImage: "url(/img/welcome_bg.jpg)",
@@ -25,13 +25,15 @@ function Welcome() {
         backgroundRepeat: "no-repeat",
         display: "flex",
         flexDirection: "column",
-        justifyContent: "space-evenly",
+        justifyContent: "flex-end",
       }}
     >
       <Box
         sx={{
           display: "flex",
           flexDirection: "column",
+          justifyContent: "center",
+          flexGrow: "1",
         }}
       >
         <Box
@@ -68,17 +70,28 @@ function Welcome() {
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
+          marginBottom: "10vh",
         }}
       >
         <Button
           variant="contained"
           color="secondary"
+          component={Link}
+          to="/login"
           sx={{
             borderRadius: "10px",
-            marginBottom: "2em",
+            marginBottom: "1em",
           }}
         >
-          Login With Email
+          <Typography
+            variant="h4"
+            sx={{
+              paddingX: "2.5em",
+              paddingY: "0.3em",
+            }}
+          >
+            Login With Email
+          </Typography>
         </Button>
         <Box>
           <Typography component="span" variant="h5" color="text.primary">

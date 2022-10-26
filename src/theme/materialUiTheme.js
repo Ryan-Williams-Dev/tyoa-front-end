@@ -11,6 +11,9 @@ let theme = createTheme({
     text: {
       primary: "#FFFFFF",
     },
+    background: {
+      default: "#253334",
+    },
   },
   typography: {
     fontFamily: ["Alegreya", "Alegreya Sans"].join(","),
@@ -34,6 +37,9 @@ let theme = createTheme({
       fontSize: 25,
       fontFamily: "Alegreya Sans",
       fontWeight: "regular",
+    },
+    button: {
+      textTransform: "none",
     },
   },
 });

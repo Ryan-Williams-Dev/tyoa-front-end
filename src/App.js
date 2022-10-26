@@ -9,21 +9,23 @@ import { ThemeProvider } from "@mui/material/styles";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Welcome from "./pages/Welcome";
+import CssBaseline from "@mui/material/CssBaseline";
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
+      <CssBaseline />
       <>
         <Router>
           <Routes>
             <Route element={<WithoutHeader />}>
               <Route path="/welcome" element={<Welcome />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
             </Route>
 
             <Route element={<WithHeader />}>
               <Route path="/" element={<Dashboard />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} />
             </Route>
           </Routes>
         </Router>
