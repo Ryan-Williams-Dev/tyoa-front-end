@@ -4,7 +4,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import WithHeader from "./components/Header/WithHeader";
 import WithoutHeader from "./components/Header/WithoutHeader";
-import theme from "./theme/palette";
+import theme from "./theme/materialUiTheme";
 import { ThemeProvider } from "@mui/material/styles";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";

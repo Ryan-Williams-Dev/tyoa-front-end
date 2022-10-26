@@ -1,8 +1,8 @@
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { Box } from "@mui/system";
-import { Typography } from "@mui/material";
+import { Button, Typography, SvgIcon } from "@mui/material";
 
 function Welcome() {
   const navigate = useNavigate();
@@ -18,14 +18,86 @@ function Welcome() {
     <Box
       sx={{
         margin: "0",
-        minHeight: "100vh",
+        height: "100vh",
         width: "100vw",
         backgroundImage: "url(/img/welcome_bg.jpg)",
         backgroundSize: "auto 100%",
         backgroundRepeat: "no-repeat",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-evenly",
       }}
     >
-      <Typography variant="h2">Welcome</Typography>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+        }}
+      >
+        <Box
+          component="img"
+          src="/img/logo.svg"
+          sx={{
+            maxHeight: "30vh",
+            marginBottom: "2em",
+          }}
+        />
+        <Typography
+          variant="h2"
+          color="text.primary"
+          sx={{
+            textAlign: "center",
+          }}
+        >
+          WELCOME
+        </Typography>
+        <Typography
+          variant="h4"
+          color="text.primary"
+          sx={{
+            textAlign: "center",
+          }}
+        >
+          Unlock a more balanced self.
+          <br />
+          Take your own advice.
+        </Typography>
+      </Box>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+      >
+        <Button
+          variant="contained"
+          color="secondary"
+          sx={{
+            borderRadius: "10px",
+            marginBottom: "2em",
+          }}
+        >
+          Login With Email
+        </Button>
+        <Box>
+          <Typography component="span" variant="h5" color="text.primary">
+            Don't have an account?{" "}
+            <Typography
+              component={Link}
+              variant="h5"
+              to="/register"
+              sx={{
+                fontWeight: "bold",
+                textDecoration: "none",
+                color: "white",
+              }}
+            >
+              Sign Up
+            </Typography>
+          </Typography>
+        </Box>
+      </Box>
     </Box>
   );
 }
