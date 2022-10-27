@@ -20,8 +20,7 @@ function Welcome() {
         sx={{
           backgroundAttachment: "fixed",
           backgroundImage: "url(/img/welcome_bg.jpg)",
-          backgroundSize: "cover",
-          height: "100vh",
+          backgroundSize: "auto 100vh",
         }}
       >
         <section
