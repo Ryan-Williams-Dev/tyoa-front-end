@@ -19,102 +19,125 @@ function Welcome() {
       <Box
         sx={{
           backgroundAttachment: "fixed",
-          height: "100vh",
-          width: "100vw",
           backgroundImage: "url(/img/welcome_bg.jpg)",
-          backgroundSize: "auto 100%",
-          backgroundRepeat: "no-repeat",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "flex-end",
+          backgroundSize: "cover",
+          height: "100vh",
         }}
       >
-        <Box
-          sx={{
+        <section
+          style={{
+            height: "100vh",
+            width: "100vw",
             display: "flex",
             flexDirection: "column",
-            justifyContent: "center",
-            flexGrow: "1",
+            justifyContent: "flex-end",
           }}
         >
           <Box
-            component="img"
-            src="/img/logo.svg"
             sx={{
-              maxHeight: "30vh",
-              marginBottom: "2em",
-            }}
-          />
-          <Typography
-            variant="h2"
-            color="text.primary"
-            sx={{
-              textAlign: "center",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              flexGrow: "1",
             }}
           >
-            WELCOME
-          </Typography>
-          <Typography
-            variant="h4"
-            color="text.primary"
-            sx={{
-              textAlign: "center",
-            }}
-          >
-            Unlock a more balanced self.
-            <br />
-            Take your own advice.
-          </Typography>
-        </Box>
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            marginBottom: "10vh",
-          }}
-        >
-          <Button
-            variant="contained"
-            color="secondary"
-            component={Link}
-            to="/login"
-            sx={{
-              borderRadius: "10px",
-              marginBottom: "1em",
-            }}
-          >
-            <Typography
-              variant="h4"
+            <Box
+              component="img"
+              src="/img/logo.svg"
               sx={{
-                paddingX: "2.5em",
-                paddingY: "0.3em",
+                maxHeight: "30vh",
+                marginBottom: "2em",
+              }}
+            />
+            <Typography
+              variant="h2"
+              color="text.primary"
+              sx={{
+                textAlign: "center",
               }}
             >
-              Login With Email
+              WELCOME
             </Typography>
-          </Button>
-          <Box>
-            <Typography component="span" variant="h5" color="text.primary">
-              Don't have an account?{" "}
-              <Typography
-                component={Link}
-                variant="h5"
-                to="/register"
-                sx={{
-                  fontWeight: "bold",
-                  textDecoration: "none",
-                  color: "white",
-                }}
-              >
-                Sign Up
-              </Typography>
+            <Typography
+              variant="h4"
+              color="text.primary"
+              sx={{
+                textAlign: "center",
+              }}
+            >
+              Unlock a more balanced self.
+              <br />
+              Take your own advice.
             </Typography>
           </Box>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              marginBottom: "10vh",
+            }}
+          >
+            <Button
+              variant="contained"
+              color="secondary"
+              component={Link}
+              to="/login"
+              sx={{
+                borderRadius: "10px",
+                marginBottom: "1em",
+              }}
+            >
+              <Typography
+                variant="h4"
+                sx={{
+                  paddingX: "2.5em",
+                  paddingY: "0.3em",
+                }}
+              >
+                Login With Email
+              </Typography>
+            </Button>
+            <Box>
+              <Typography component="span" variant="h5" color="text.primary">
+                Don't have an account?{" "}
+                <Typography
+                  component={Link}
+                  variant="h5"
+                  to="/register"
+                  sx={{
+                    fontWeight: "bold",
+                    textDecoration: "none",
+                    color: "white",
+                  }}
+                >
+                  Sign Up
+                </Typography>
+              </Typography>
+            </Box>
+          </Box>
+        </section>
+        <Box
+          sx={{
+            height: "100vh",
+            width: "100vw",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            textAlign: "center",
+            gap: "1em",
+            paddingX: "2em",
+          }}
+        >
+          <Typography variant="h2">My Vision</Typography>
+          <Typography variant="body1">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, fuga
+            labore! At eaque modi corporis, voluptate hic voluptatem nihil animi
+            quo soluta quae voluptatibus, excepturi fugit neque! In, quasi
+            excepturi?
+          </Typography>
         </Box>
-      </Box>
-      <Box>
-        <Typography>Hello</Typography>
       </Box>
     </>
   );
