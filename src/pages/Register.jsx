@@ -84,7 +84,14 @@ function Register() {
           alignItems: "center",
         }}
       >
-        <Typography variant="h3">Register</Typography>
+        <Box
+          component="img"
+          src="/img/logo.svg"
+          sx={{
+            maxHeight: "50px",
+          }}
+        />
+        <Typography variant="h2">Register</Typography>
         <Typography variant="body1">Please create an account</Typography>
       </Box>
       <Box
@@ -100,6 +107,7 @@ function Register() {
         }}
       >
         <TextField
+          variant="standard"
           inputRef={nameRef}
           type="text"
           required

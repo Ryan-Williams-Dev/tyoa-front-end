@@ -129,12 +129,14 @@ function Welcome() {
             paddingX: "2em",
           }}
         >
-          <Typography variant="h2">My Vision</Typography>
+          <Typography variant="h2">About</Typography>
           <Typography variant="body1">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, fuga
-            labore! At eaque modi corporis, voluptate hic voluptatem nihil animi
-            quo soluta quae voluptatibus, excepturi fugit neque! In, quasi
-            excepturi?
+            Life is full of ups and downs. At times, a positive mentality is
+            clear. At others, it's hard to frame anything in a positive light.
+            Take Your Own Advice is a tool. A tool to absorb your optimistic
+            wisdom when positive energy is flowing. Then on days when negative
+            thoughts are louder, we will feed you related support in your own
+            words. <br /> Become your own best friend.
           </Typography>
         </Box>
       </Box>
