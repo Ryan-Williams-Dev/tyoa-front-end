@@ -77,6 +77,7 @@ function Register() {
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
+          width: "80vw",
         }}
       >
         <Box
@@ -88,7 +89,7 @@ function Register() {
         />
         <Typography variant="h2">Register</Typography>
         <Typography variant="body1" color="text.secondary">
-          Please create an account
+          Sign up now to start receiving advice from your closest friend
         </Typography>
       </Box>
       <Box
