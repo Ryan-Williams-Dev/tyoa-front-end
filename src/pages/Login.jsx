@@ -1,15 +1,10 @@
-import {
-  Box,
-  Button,
-  TextField,
-  Typography,
-  CircularProgress,
-} from "@mui/material";
+import { Box, Button, Typography, CircularProgress } from "@mui/material";
 import { useRef, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { login, reset } from "../features/auth/authSlice";
+import StyledTextField from "../components/StyledTextField";
 
 function Login() {
   const emailRef = useRef(null);
@@ -87,18 +82,20 @@ function Login() {
           flexGrow: "1",
         }}
       >
-        <TextField
+        <StyledTextField
+          variant="standard"
           inputRef={emailRef}
           type="email"
           required
           label="Email"
-        ></TextField>
-        <TextField
+        ></StyledTextField>
+        <StyledTextField
+          variant="standard"
           inputRef={passwordRef}
           type="password"
           required
           label="Password"
-        ></TextField>
+        ></StyledTextField>
         <Button type="submit" variant="contained">
           Login
         </Button>

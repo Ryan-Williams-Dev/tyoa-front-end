@@ -4,12 +4,15 @@ let theme = createTheme({
   palette: {
     primary: {
       main: "#253334",
+      contrastText: "#ffffff",
     },
     secondary: {
       main: "#7C9A92",
+      contrastText: "#ffffff",
     },
     text: {
       primary: "#FFFFFF",
+      secondary: "rgba(255, 255, 255, 0.7)",
     },
     background: {
       default: "#253334",

@@ -2,11 +2,12 @@ import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { Box } from "@mui/system";
-import { Button, Typography, SvgIcon } from "@mui/material";
+import { Button, Typography, useMediaQuery } from "@mui/material";
 
 function Welcome() {
   const navigate = useNavigate();
   const { user } = useSelector((state) => state.auth);
+  const backgroundByVH = useMediaQuery("(max-aspect-ratio: 2048/1365)");
 
   useEffect(() => {
     if (user) {
@@ -20,7 +21,7 @@ function Welcome() {
         sx={{
           backgroundAttachment: "fixed",
           backgroundImage: "url(/img/welcome_bg.jpg)",
-          backgroundSize: "auto 100vh",
+          backgroundSize: backgroundByVH ? "auto 100vh" : "100vw auto",
         }}
       >
         <section
@@ -130,7 +131,7 @@ function Welcome() {
           }}
         >
           <Typography variant="h2">About</Typography>
-          <Typography variant="body1">
+          <Typography variant="body1" maxWidth="600px">
             Life is full of ups and downs. At times, a positive mentality is
             clear. At others, it's hard to frame anything in a positive light.
             Take Your Own Advice is a tool. A tool to absorb your optimistic

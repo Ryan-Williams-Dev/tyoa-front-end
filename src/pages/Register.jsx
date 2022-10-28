@@ -1,15 +1,10 @@
-import {
-  Box,
-  Button,
-  TextField,
-  Typography,
-  CircularProgress,
-} from "@mui/material";
+import { Box, Button, Typography, CircularProgress } from "@mui/material";
 import { useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { register, reset } from "../features/auth/authSlice";
+import StyledTextField from "../components/StyledTextField";
 
 function Register() {
   const nameRef = useRef(null);
@@ -92,7 +87,9 @@ function Register() {
           }}
         />
         <Typography variant="h2">Register</Typography>
-        <Typography variant="body1">Please create an account</Typography>
+        <Typography variant="body1" color="text.secondary">
+          Please create an account
+        </Typography>
       </Box>
       <Box
         component="form"
@@ -106,31 +103,34 @@ function Register() {
           margin: "2em",
         }}
       >
-        <TextField
+        <StyledTextField
           variant="standard"
           inputRef={nameRef}
           type="text"
           required
           label="Name"
-        ></TextField>
-        <TextField
+        ></StyledTextField>
+        <StyledTextField
+          variant="standard"
           inputRef={emailRef}
           type="email"
           required
           label="Email"
-        ></TextField>
-        <TextField
+        ></StyledTextField>
+        <StyledTextField
+          variant="standard"
           inputRef={passwordRef}
           type="password"
           required
           label="Password"
-        ></TextField>
-        <TextField
+        ></StyledTextField>
+        <StyledTextField
+          variant="standard"
           inputRef={passwordConfirmRef}
           type="password"
           required
           label="Confirm Password"
-        ></TextField>
+        ></StyledTextField>
         <Button type="submit" variant="contained">
           Register
         </Button>
