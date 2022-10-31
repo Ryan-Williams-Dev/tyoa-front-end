@@ -3,10 +3,8 @@ import { styled, TextField } from "@mui/material";
 const StyledTextField = styled(TextField)({
   fontFamily: "Alegreya Sans",
   fontWeight: "regular",
-  width: "500px",
-  "@media(max-width: 600px)": {
-    width: "100%",
-  },
+  width: "97%",
+  alignSelf: "center",
   "& input": {
     fontFamily: "Alegreya Sans",
   },
@@ -14,7 +12,7 @@ const StyledTextField = styled(TextField)({
     color: "rgba(255, 255, 255, 0.7)",
     fontFamily: "Alegreya Sans",
     fontWeight: "regular",
-    marginLeft: "0.5em",
+    marginLeft: "0.3em",
   },
   "& label.Mui-focused": {
     color: "white",

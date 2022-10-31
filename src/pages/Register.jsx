@@ -79,7 +79,8 @@ function Register() {
           sx={{
             display: "flex",
             flexDirection: "column",
-            width: "80vw",
+            width: "97%",
+            alignSelf: "center",
           }}
         >
           <Box
@@ -94,8 +95,8 @@ function Register() {
           <Typography variant="h2" fontWeight="regular">
             Sign Up
           </Typography>
-          <Typography variant="body1" color="text.secondary">
-            Sign up now to start receiving advice from your closest friend.
+          <Typography variant="body1" fontSize={20} color="text.secondary">
+            Begin your journey of self-guidance.
           </Typography>
         </Box>
         <StyledTextField

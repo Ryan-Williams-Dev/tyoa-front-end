@@ -27,6 +27,7 @@ function PrimaryButton({
         component={buttonRoute ? Link : ""}
         to={buttonRoute ? buttonRoute : ""}
         sx={{
+          width: "100%",
           borderRadius: "10px",
           marginBottom: "1em",
         }}
