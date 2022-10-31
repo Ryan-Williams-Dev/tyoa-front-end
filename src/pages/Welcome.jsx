@@ -3,8 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { Box } from "@mui/system";
 import { useMediaQuery } from "@mui/material";
-import LogoAndWelcome from "../components/WelcomePageComponents/LogoAndWelcome";
-import LoginButton from "../components/WelcomePageComponents/LoginButton";
 import AboutSection from "../components/WelcomePageComponents/AboutSection";
 import LandingSection from "../components/WelcomePageComponents/LandingSection";
 

@@ -4,10 +4,12 @@ function LogoAndWelcome() {
   return (
     <Box
       sx={{
+        gridRowStart: 2,
+        gridRowEnd: 2,
+        alignSelf: "end",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
-        flexGrow: "1",
       }}
     >
       <Box

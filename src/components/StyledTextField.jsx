@@ -5,7 +5,7 @@ const StyledTextField = styled(TextField)({
   fontWeight: "regular",
   width: "500px",
   "@media(max-width: 600px)": {
-    width: "80vw",
+    width: "100%",
   },
   "& input": {
     fontFamily: "Alegreya Sans",

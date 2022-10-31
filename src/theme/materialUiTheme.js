@@ -41,6 +41,10 @@ let theme = createTheme({
       fontFamily: "Alegreya Sans",
       fontWeight: "regular",
     },
+    body1: {
+      fontFamily: "Alegreya Sans",
+      fontWeight: "regular",
+    },
     button: {
       textTransform: "none",
     },

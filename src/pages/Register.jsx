@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { register, reset } from "../features/auth/authSlice";
 import StyledTextField from "../components/StyledTextField";
+import StyledFormContainer from "../components/StyledFormContainer";
+import PrimaryButton from "../components/WelcomePageComponents/PrimaryButton";
 
 function Register() {
   const nameRef = useRef(null);
@@ -69,41 +71,33 @@ function Register() {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
+        paddingTop: "4em",
       }}
     >
-      <Box
-        sx={{
-          marginTop: "2em",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          width: "80vw",
-        }}
-      >
+      <StyledFormContainer component="form" onSubmit={onSubmit}>
         <Box
-          component="img"
-          src="/img/logo.svg"
           sx={{
-            maxHeight: "50px",
+            display: "flex",
+            flexDirection: "column",
+            width: "80vw",
           }}
-        />
-        <Typography variant="h2">Register</Typography>
-        <Typography variant="body1" color="text.secondary">
-          Sign up now to start receiving advice from your closest friend
-        </Typography>
-      </Box>
-      <Box
-        component="form"
-        onSubmit={onSubmit}
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          gap: "2em",
-          margin: "2em",
-        }}
-      >
+        >
+          <Box
+            component="img"
+            src="/img/logo.svg"
+            sx={{
+              maxHeight: "50px",
+              maxWidth: "50px",
+              marginBottom: "2em",
+            }}
+          />
+          <Typography variant="h2" fontWeight="regular">
+            Sign Up
+          </Typography>
+          <Typography variant="body1" color="text.secondary">
+            Sign up now to start receiving advice from your closest friend.
+          </Typography>
+        </Box>
         <StyledTextField
           variant="standard"
           inputRef={nameRef}
@@ -132,10 +126,15 @@ function Register() {
           required
           label="Confirm Password"
         ></StyledTextField>
-        <Button type="submit" variant="contained">
-          Register
-        </Button>
-      </Box>
+        <PrimaryButton
+          undertext="Already have an account?"
+          undertextBold="Sign In"
+          undertextRoute="/login"
+          buttonType="submit"
+        >
+          SIGN UP
+        </PrimaryButton>
+      </StyledFormContainer>
     </Box>
   );
 }
