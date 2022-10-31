@@ -83,15 +83,18 @@ function Register() {
             alignSelf: "center",
           }}
         >
-          <Box
-            component="img"
-            src="/img/logo.svg"
-            sx={{
-              maxHeight: "50px",
-              maxWidth: "50px",
-              marginBottom: "2em",
-            }}
-          />
+          <a href="/">
+            <Box
+              component="img"
+              src="/img/logo.svg"
+              sx={{
+                maxHeight: "50px",
+                maxWidth: "50px",
+                marginBottom: "2em",
+              }}
+            />
+          </a>
+
           <Typography variant="h2" fontWeight="regular">
             Sign Up
           </Typography>

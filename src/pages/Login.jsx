@@ -1,10 +1,12 @@
-import { Box, Button, Typography, CircularProgress } from "@mui/material";
+import { Box, Typography, CircularProgress } from "@mui/material";
 import { useRef, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { login, reset } from "../features/auth/authSlice";
 import StyledTextField from "../components/StyledTextField";
+import PrimaryButton from "../components/WelcomePageComponents/PrimaryButton";
+import StyledFormContainer from "../components/StyledFormContainer";
 
 function Login() {
   const emailRef = useRef(null);
@@ -55,33 +57,60 @@ function Login() {
     );
   }
 
-  return (
-    <>
+  if (isLoading) {
+    return (
       <Box
         sx={{
-          marginTop: "2em",
+          marginTop: "10vh",
+          width: "100vw",
           display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
           justifyContent: "center",
-          flexGrow: "1",
+          alignItems: "center",
         }}
       >
-        <Typography variant="h3">Login</Typography>
+        <CircularProgress size={100} color="primary" />
       </Box>
-      <Box
-        component="form"
-        onSubmit={onSubmit}
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          gap: "2em",
-          margin: "2em",
-          flexGrow: "1",
-        }}
-      >
+    );
+  }
+
+  return (
+    <Box
+      sx={{
+        width: "100vw",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        paddingTop: "4em",
+      }}
+    >
+      <StyledFormContainer component="form" onSubmit={onSubmit}>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            width: "97%",
+            alignSelf: "center",
+          }}
+        >
+          <a href="/">
+            <Box
+              component="img"
+              src="/img/logo.svg"
+              sx={{
+                maxHeight: "50px",
+                maxWidth: "50px",
+                marginBottom: "2em",
+              }}
+            />
+          </a>
+
+          <Typography variant="h2" fontWeight="regular">
+            Sign In
+          </Typography>
+          <Typography variant="body1" fontSize={20} color="text.secondary">
+            Get back to where you left off.
+          </Typography>
+        </Box>
         <StyledTextField
           variant="standard"
           inputRef={emailRef}
@@ -96,11 +125,16 @@ function Login() {
           required
           label="Password"
         ></StyledTextField>
-        <Button type="submit" variant="contained">
-          Login
-        </Button>
-      </Box>
-    </>
+        <PrimaryButton
+          buttonType="submit"
+          undertext="Don't have an account?"
+          undertextBold="Sign Up"
+          undertextRoute="/register"
+        >
+          LOGIN
+        </PrimaryButton>
+      </StyledFormContainer>
+    </Box>
   );
 }
 
