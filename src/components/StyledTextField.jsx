@@ -14,6 +14,7 @@ const StyledTextField = styled(TextField)({
     color: "rgba(255, 255, 255, 0.7)",
     fontFamily: "Alegreya Sans",
     fontWeight: "regular",
+    marginLeft: "0.5em",
   },
   "& label.Mui-focused": {
     color: "white",

@@ -10,6 +10,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Welcome from "./pages/Welcome";
 import CssBaseline from "@mui/material/CssBaseline";
+import "./styles/scrollAnimate.css";
 
 function App() {
   return (
