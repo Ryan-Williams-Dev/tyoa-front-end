@@ -48,6 +48,9 @@ let theme = createTheme({
     button: {
       textTransform: "none",
     },
+    iconButton: {
+      color: "text.primary",
+    },
   },
 });
 

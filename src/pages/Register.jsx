@@ -1,12 +1,13 @@
-import { Box, Button, Typography, CircularProgress } from "@mui/material";
-import { useEffect, useRef } from "react";
+import { Box, Typography, CircularProgress } from "@mui/material";
+import { useEffect, useRef, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { register, reset } from "../features/auth/authSlice";
-import StyledTextField from "../components/StyledTextField";
-import StyledFormContainer from "../components/StyledFormContainer";
+import StyledTextField from "../components/FormComponents/StyledTextField";
+import StyledFormContainer from "../components/FormComponents/StyledFormContainer";
 import PrimaryButton from "../components/WelcomePageComponents/PrimaryButton";
+import PasswordAdornment from "../components/FormComponents/PasswordAdornment";
 
 function Register() {
   const nameRef = useRef(null);
@@ -19,6 +20,9 @@ function Register() {
   const { user, isLoading, isError, isSuccess, message } = useSelector(
     (state) => state.auth
   );
+
+  let [showPassword, setShowPassword] = useState(false);
+  let [showPasswordConfirm, setShowPasswordConfirm] = useState(false);
 
   useEffect(() => {
     if (isError) {
@@ -46,6 +50,13 @@ function Register() {
 
       dispatch(register(userData));
     }
+  };
+
+  const handleClickShowPassword = () => {
+    setShowPassword((showPassword = !showPassword));
+  };
+  const handleClickShowPasswordConfirm = () => {
+    setShowPasswordConfirm((showPasswordConfirm = !showPasswordConfirm));
   };
 
   if (isLoading) {
@@ -119,16 +130,32 @@ function Register() {
         <StyledTextField
           variant="standard"
           inputRef={passwordRef}
-          type="password"
+          type={showPassword ? "text" : "password"}
           required
           label="Password"
+          InputProps={{
+            endAdornment: (
+              <PasswordAdornment
+                visibility={showPassword}
+                clickHandler={handleClickShowPassword}
+              />
+            ),
+          }}
         ></StyledTextField>
         <StyledTextField
           variant="standard"
           inputRef={passwordConfirmRef}
-          type="password"
+          type={showPasswordConfirm ? "text" : "password"}
           required
           label="Confirm Password"
+          InputProps={{
+            endAdornment: (
+              <PasswordAdornment
+                visibility={showPasswordConfirm}
+                clickHandler={handleClickShowPasswordConfirm}
+              />
+            ),
+          }}
         ></StyledTextField>
         <PrimaryButton
           undertext="Already have an account?"

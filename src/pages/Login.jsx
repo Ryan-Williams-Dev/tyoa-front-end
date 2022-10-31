@@ -1,16 +1,18 @@
 import { Box, Typography, CircularProgress } from "@mui/material";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { login, reset } from "../features/auth/authSlice";
-import StyledTextField from "../components/StyledTextField";
+import StyledTextField from "../components/FormComponents/StyledTextField";
 import PrimaryButton from "../components/WelcomePageComponents/PrimaryButton";
-import StyledFormContainer from "../components/StyledFormContainer";
+import StyledFormContainer from "../components/FormComponents/StyledFormContainer";
+import PasswordAdornment from "../components/FormComponents/PasswordAdornment";
 
 function Login() {
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
+  let [showPassword, setShowPassword] = useState(false);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -39,6 +41,10 @@ function Login() {
     };
 
     dispatch(login(userData));
+  };
+
+  const handleClickShowPassword = () => {
+    setShowPassword((showPassword = !showPassword));
   };
 
   if (isLoading) {
@@ -121,9 +127,17 @@ function Login() {
         <StyledTextField
           variant="standard"
           inputRef={passwordRef}
-          type="password"
+          type={showPassword ? "text" : "password"}
           required
           label="Password"
+          InputProps={{
+            endAdornment: (
+              <PasswordAdornment
+                visibility={showPassword}
+                clickHandler={handleClickShowPassword}
+              />
+            ),
+          }}
         ></StyledTextField>
         <PrimaryButton
           buttonType="submit"
