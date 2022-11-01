@@ -21,14 +21,15 @@ function Welcome() {
     <>
       <Box
         sx={{
-          backgroundAttachment: "fixed",
           backgroundImage: "url(/img/welcome_bg.jpg)",
           backgroundSize: backgroundByVH ? "auto 100vh" : "100vw auto",
+          position: "fixed",
+          height: "100vh",
+          width: "100vw",
         }}
-      >
-        <LandingSection />
-        <AboutSection />
-      </Box>
+      />
+      <LandingSection />
+      <AboutSection />
     </>
   );
 }
