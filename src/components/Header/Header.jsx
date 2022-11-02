@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
-import { FaSignInAlt, FaSignOutAlt, FaUser, FaBars } from "react-icons/fa";
+import { FaBars } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import {
   AppBar,
@@ -56,7 +56,7 @@ function Header() {
     }
 
     reset();
-  }, [isError]);
+  }, [isError, message]);
 
   return (
     <>

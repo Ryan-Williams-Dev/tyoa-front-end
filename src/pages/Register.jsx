@@ -1,7 +1,7 @@
 import { Box, Typography, CircularProgress } from "@mui/material";
 import { useEffect, useRef, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { register, reset } from "../features/auth/authSlice";
 import StyledTextField from "../components/FormComponents/StyledTextField";
@@ -94,17 +94,19 @@ function Register() {
             alignSelf: "center",
           }}
         >
-          <a href="/">
-            <Box
-              component="img"
-              src="/img/logo.svg"
-              sx={{
-                maxHeight: "50px",
-                maxWidth: "50px",
-                marginBottom: "2em",
-              }}
-            />
-          </a>
+          <div>
+            <Link to="/">
+              <Box
+                component="img"
+                src="/img/logo.svg"
+                sx={{
+                  maxHeight: "50px",
+                  maxWidth: "50px",
+                  marginBottom: "2em",
+                }}
+              />
+            </Link>
+          </div>
 
           <Typography variant="h2" fontWeight="regular">
             Sign Up
