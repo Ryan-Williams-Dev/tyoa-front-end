@@ -1,13 +1,14 @@
 import { Box, Typography, CircularProgress } from "@mui/material";
 import { useEffect, useRef, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { register, reset } from "../features/auth/authSlice";
 import StyledTextField from "../components/FormComponents/StyledTextField";
 import StyledFormContainer from "../components/FormComponents/StyledFormContainer";
 import PrimaryButton from "../components/WelcomePageComponents/PrimaryButton";
 import PasswordAdornment from "../components/FormComponents/PasswordAdornment";
+import LogoLink from "../components/LogoLink";
 
 function Register() {
   const nameRef = useRef(null);
@@ -94,20 +95,7 @@ function Register() {
             alignSelf: "center",
           }}
         >
-          <div>
-            <Link to="/">
-              <Box
-                component="img"
-                src="/img/logo.svg"
-                sx={{
-                  maxHeight: "50px",
-                  maxWidth: "50px",
-                  marginBottom: "2em",
-                }}
-              />
-            </Link>
-          </div>
-
+          <LogoLink extraStylingImg={{ marginBottom: "1.5em" }} />
           <Typography variant="h2" fontWeight="regular">
             Sign Up
           </Typography>

@@ -1,13 +1,14 @@
 import { Box, Typography, CircularProgress } from "@mui/material";
 import { useRef, useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { login, reset } from "../features/auth/authSlice";
 import StyledTextField from "../components/FormComponents/StyledTextField";
 import PrimaryButton from "../components/WelcomePageComponents/PrimaryButton";
 import StyledFormContainer from "../components/FormComponents/StyledFormContainer";
 import PasswordAdornment from "../components/FormComponents/PasswordAdornment";
+import LogoLink from "../components/LogoLink";
 
 function Login() {
   const emailRef = useRef(null);
@@ -98,19 +99,7 @@ function Login() {
             alignSelf: "center",
           }}
         >
-          <div>
-            <Link to="/">
-              <Box
-                component="img"
-                src="/img/logo.svg"
-                sx={{
-                  maxHeight: "50px",
-                  maxWidth: "50px",
-                  marginBottom: "2em",
-                }}
-              />
-            </Link>
-          </div>
+          <LogoLink extraStylingImg={{ marginBottom: "1.5em" }} />
 
           <Typography variant="h2" fontWeight="regular">
             Sign In
