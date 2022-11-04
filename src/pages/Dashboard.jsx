@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { Box, Typography } from "@mui/material";
-import StyledFormContainer from "../components/FormComponents/StyledFormContainer";
 
 function Dashboard() {
   const navigate = useNavigate();
@@ -17,6 +16,7 @@ function Dashboard() {
   return (
     <Box
       sx={{
+        marginTop: "2em",
         width: "100vw",
         display: "flex",
         justifyContent: "center",

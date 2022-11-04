@@ -20,7 +20,7 @@ import LogoLink from "../LogoLink";
 import "../../styles/hamburger.css";
 
 function Header() {
-  const pages = [];
+  const pages = ["Don't", "Click", "Tests"];
   const settings = ["Account", "Logout"];
 
   const navigate = useNavigate();
@@ -66,6 +66,7 @@ function Header() {
         sx={{
           boxShadow: "none",
           backgroundColor: "transparent",
+          paddingTop: "1em",
         }}
       >
         <Container maxWidth="xl">
@@ -129,7 +130,9 @@ function Header() {
                     key={page}
                     onClick={handleCloseNavMenu}
                   >
-                    <Typography textAlign="center">{page}</Typography>
+                    <Typography color="primary" variant="h6" textAlign="center">
+                      {page}
+                    </Typography>
                   </MenuItem>
                 ))}
               </Menu>
@@ -190,7 +193,13 @@ function Header() {
                         setting === "Logout" ? onLogout : handleCloseUserMenu
                       }
                     >
-                      <Typography textAlign="center">{setting}</Typography>
+                      <Typography
+                        variant="h6"
+                        textAlign="center"
+                        color="primary"
+                      >
+                        {setting}
+                      </Typography>
                     </MenuItem>
                   ))}
                 </Menu>

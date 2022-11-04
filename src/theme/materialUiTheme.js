@@ -10,6 +10,9 @@ let theme = createTheme({
       main: "#7C9A92",
       contrastText: "#ffffff",
     },
+    card: {
+      bg: "#F7F3F0",
+    },
     text: {
       primary: "#FFFFFF",
       secondary: "rgba(255, 255, 255, 0.7)",
@@ -38,6 +41,10 @@ let theme = createTheme({
     },
     h5: {
       fontSize: 25,
+      fontFamily: "Alegreya Sans",
+      fontWeight: "regular",
+    },
+    h6: {
       fontFamily: "Alegreya Sans",
       fontWeight: "regular",
     },

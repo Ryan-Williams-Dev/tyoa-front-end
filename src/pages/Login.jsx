@@ -75,7 +75,7 @@ function Login() {
           alignItems: "center",
         }}
       >
-        <CircularProgress size={100} color="primary" />
+        <CircularProgress size={100} color="#FFFFFF" />
       </Box>
     );
   }
