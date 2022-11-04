@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { Box, Typography } from "@mui/material";
-import NewPromptForm from "../components/NewPromptForm";
+import StyledFormContainer from "../components/FormComponents/StyledFormContainer";
 
 function Dashboard() {
   const navigate = useNavigate();
@@ -17,15 +17,31 @@ function Dashboard() {
   return (
     <Box
       sx={{
-        marginTop: "2em",
         width: "100vw",
         display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
+        justifyContent: "center",
       }}
     >
-      <Typography variant="h3">Welcome {user && user.name} </Typography>
-      <NewPromptForm />
+      <Box
+        sx={{
+          width: "85vw",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "flex-start",
+        }}
+      >
+        <Typography variant="h3" fontFamily="Alegreya">
+          Welcome back, {user && user.name}!{" "}
+        </Typography>
+        <Typography
+          variant="h4"
+          sx={{
+            opacity: 0.7,
+          }}
+        >
+          How're you feeling today?
+        </Typography>
+      </Box>
     </Box>
   );
 }

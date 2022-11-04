@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
-import { FaBars } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import {
   AppBar,
@@ -18,9 +17,10 @@ import {
 import { useSelector, useDispatch } from "react-redux";
 import { logout, reset } from "../../features/auth/authSlice";
 import LogoLink from "../LogoLink";
+import "../../styles/hamburger.css";
 
 function Header() {
-  const pages = ["Login", "Register"];
+  const pages = [];
   const settings = ["Account", "Logout"];
 
   const navigate = useNavigate();
@@ -97,7 +97,12 @@ function Header() {
                 onClick={handleOpenNavMenu}
                 color="inherit"
               >
-                <FaBars />
+                {/* <FaBars /> */}
+                <div className={`${anchorElNav ? "open " : " "}wrapper-menu`}>
+                  <div className="line-menu half start" />
+                  <div className="line-menu" />
+                  <div className="line-menu half end" />
+                </div>
               </IconButton>
               <Menu
                 id="menu-appbar"
@@ -131,9 +136,14 @@ function Header() {
             </Box>
             <LogoLink
               extraStylingContainer={{
-                flexGrow: 1,
+                marginTop: "0.3em",
+                flexGrow: "1",
+              }}
+              extraStylingImg={{
+                maxWidth: "40px",
               }}
             />
+
             <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
               {pages.map((page) => (
                 <Button
@@ -152,10 +162,9 @@ function Header() {
               <Box sx={{ flexGrow: 0 }}>
                 <Tooltip title="Open settings">
                   <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                    <Avatar
-                      alt="Remy Sharp"
-                      src="/static/images/avatar/2.jpg"
-                    />
+                    <Avatar backgroundColor="secondary" alt={user.name}>
+                      {user.name.charAt(0)}
+                    </Avatar>
                   </IconButton>
                 </Tooltip>
                 <Menu
