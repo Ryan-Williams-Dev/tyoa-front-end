@@ -1,4 +1,10 @@
-import { useState, useEffect } from "react";
+import {
+  useState,
+  useEffect,
+  useContext,
+  useRef,
+  useLayoutEffect,
+} from "react";
 import { toast } from "react-toastify";
 import { Link, useNavigate } from "react-router-dom";
 import {
@@ -18,10 +24,17 @@ import { useSelector, useDispatch } from "react-redux";
 import { logout, reset } from "../../features/auth/authSlice";
 import LogoLink from "../LogoLink";
 import "../../styles/hamburger.css";
+import { navHeightContext } from "../../providers/NavHeightProvider";
 
 function Header() {
   const pages = ["Don't", "Click", "Tests"];
   const settings = ["Account", "Logout"];
+  const { setHeight } = useContext(navHeightContext);
+  const ref = useRef(null);
+
+  useLayoutEffect(() => {
+    setHeight(ref.current.clientHeight);
+  }, [setHeight]);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -62,11 +75,14 @@ function Header() {
   return (
     <>
       <AppBar
+        ref={ref}
         position="fixed"
         sx={{
           boxShadow: "none",
-          backgroundColor: "transparent",
-          paddingTop: "1em",
+          marginTop: "1em",
+          // borderStyle: "solid",
+          // borderWidth: "1px",
+          // borderColor: "white",   /* These are to visualise the border */
         }}
       >
         <Container maxWidth="xl">
@@ -89,7 +105,13 @@ function Header() {
               T Y O A
             </Typography>
 
-            <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+            <Box
+              sx={{
+                flexGrow: 1,
+                display: { xs: "flex", md: "none" },
+                alignContent: "center",
+              }}
+            >
               <IconButton
                 size="large"
                 aria-label="account of current user"
@@ -139,11 +161,10 @@ function Header() {
             </Box>
             <LogoLink
               extraStylingContainer={{
-                marginTop: "0.3em",
                 flexGrow: "1",
               }}
               extraStylingImg={{
-                maxWidth: "40px",
+                maxWidth: "60px",
               }}
             />
 
@@ -164,7 +185,7 @@ function Header() {
             {user && (
               <Box sx={{ flexGrow: 0 }}>
                 <Tooltip title="Open settings">
-                  <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                  <IconButton onClick={handleOpenUserMenu} sx={{ p: "12px" }}>
                     <Avatar backgroundColor="secondary" alt={user.name}>
                       {user.name.charAt(0)}
                     </Avatar>

@@ -13,8 +13,6 @@ function LogoLink({ extraStylingImg, extraStylingContainer }) {
           component="img"
           src="/img/logo.svg"
           sx={{
-            maxHeight: "50px",
-            maxWidth: "50px",
             ...extraStylingImg,
           }}
         />
