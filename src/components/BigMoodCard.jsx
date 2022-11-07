@@ -1,9 +1,10 @@
-import { Box, Typography } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 
 function BigMoodCard({ children, mood }) {
   return (
-    <Box
+    <Button
+      variant="contained"
       component={Link}
       to={`/descriptors/${mood}`}
       sx={{
@@ -20,8 +21,7 @@ function BigMoodCard({ children, mood }) {
       <Typography variant="h1" color="primary">
         {children}
       </Typography>
-    </Box>
+    </Button>
   );
 }
-
 export default BigMoodCard;
