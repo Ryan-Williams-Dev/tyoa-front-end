@@ -4,6 +4,8 @@ import { useSelector } from "react-redux";
 import { Box, Typography } from "@mui/material";
 import BigMoodCard from "../components/BigMoodCard";
 import { navHeightContext } from "../providers/NavHeightProvider";
+import { FaThumbsUp, FaThumbsDown } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 function Dashboard() {
   const navigate = useNavigate();
@@ -16,8 +18,14 @@ function Dashboard() {
     }
   }, [user, navigate]);
 
+  const userFirstName = user && user.name.split(" ")[0];
+
   return (
     <Box
+      component={motion.div}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
       sx={{
         display: "flex",
         justifyContent: "center",
@@ -33,9 +41,6 @@ function Dashboard() {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "flex-start",
-          // borderStyle: "solid",
-          // borderWidth: "1px",
-          // borderColor: "white",  /* These are to visualise the border */
         }}
       >
         <Box
@@ -48,7 +53,7 @@ function Dashboard() {
           }}
         >
           <Typography variant="h3" fontFamily="Alegreya">
-            Welcome back, {user && user.name}!{" "}
+            Welcome back, {user && userFirstName}!{" "}
           </Typography>
           <Typography
             variant="h4"
@@ -66,12 +71,19 @@ function Dashboard() {
             alignSelf: "center",
             display: "flex",
             flexDirection: "column",
-            gap: "1em",
-            marginY: "0.5em",
+            gap: "1.5em",
+            marginY: "1em",
+            "@media (orientation: landscape)": {
+              flexDirection: "row",
+            },
           }}
         >
-          <BigMoodCard>Wonderful!</BigMoodCard>
-          <BigMoodCard>Just Awful!</BigMoodCard>
+          <BigMoodCard mood="good">
+            <FaThumbsUp />
+          </BigMoodCard>
+          <BigMoodCard mood="bad ">
+            <FaThumbsDown />
+          </BigMoodCard>
         </Box>
       </Box>
     </Box>

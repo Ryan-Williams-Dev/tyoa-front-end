@@ -79,10 +79,7 @@ function Header() {
         position="fixed"
         sx={{
           boxShadow: "none",
-          marginTop: "1em",
-          // borderStyle: "solid",
-          // borderWidth: "1px",
-          // borderColor: "white",   /* These are to visualise the border */
+          paddingTop: "1em",
         }}
       >
         <Container maxWidth="xl">
@@ -186,9 +183,7 @@ function Header() {
               <Box sx={{ flexGrow: 0 }}>
                 <Tooltip title="Open settings">
                   <IconButton onClick={handleOpenUserMenu} sx={{ p: "12px" }}>
-                    <Avatar backgroundColor="secondary" alt={user.name}>
-                      {user.name.charAt(0)}
-                    </Avatar>
+                    <Avatar alt={user.name}>{user.name.charAt(0)}</Avatar>
                   </IconButton>
                 </Tooltip>
                 <Menu

@@ -5,6 +5,7 @@ import { Box } from "@mui/system";
 import { useMediaQuery } from "@mui/material";
 import AboutSection from "../components/WelcomePageComponents/AboutSection";
 import LandingSection from "../components/WelcomePageComponents/LandingSection";
+import { motion } from "framer-motion";
 
 function Welcome() {
   const navigate = useNavigate();
@@ -18,7 +19,11 @@ function Welcome() {
   }, [user, navigate]);
 
   return (
-    <>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
       <Box
         sx={{
           backgroundImage: "url(/img/welcome_bg.jpg)",
@@ -30,7 +35,7 @@ function Welcome() {
       />
       <LandingSection />
       <AboutSection />
-    </>
+    </motion.div>
   );
 }
 

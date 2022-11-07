@@ -1,14 +1,16 @@
-import { Box, Typography, CircularProgress } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { useRef, useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { login, reset } from "../features/auth/authSlice";
 import StyledTextField from "../components/FormComponents/StyledTextField";
-import PrimaryButton from "../components/WelcomePageComponents/PrimaryButton";
+import PrimaryButton from "../components/PrimaryButton";
 import StyledFormContainer from "../components/FormComponents/StyledFormContainer";
 import PasswordAdornment from "../components/FormComponents/PasswordAdornment";
 import LogoLink from "../components/LogoLink";
+import { motion } from "framer-motion";
+import LoadingDiv from "../components/LoadingDiv";
 
 function Login() {
   const emailRef = useRef(null);
@@ -49,39 +51,15 @@ function Login() {
   };
 
   if (isLoading) {
-    return (
-      <Box
-        sx={{
-          marginTop: "10vh",
-          width: "100vw",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <CircularProgress size={100} color="primary" />
-      </Box>
-    );
-  }
-
-  if (isLoading) {
-    return (
-      <Box
-        sx={{
-          marginTop: "10vh",
-          width: "100vw",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <CircularProgress size={100} color="#FFFFFF" />
-      </Box>
-    );
+    return <LoadingDiv />;
   }
 
   return (
     <Box
+      component={motion.div}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
       sx={{
         width: "100vw",
         display: "flex",

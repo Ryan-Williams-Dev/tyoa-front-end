@@ -1,8 +1,11 @@
 import { Box, Typography } from "@mui/material";
+import { Link } from "react-router-dom";
 
-function BigMoodCard({ children }) {
+function BigMoodCard({ children, mood }) {
   return (
     <Box
+      component={Link}
+      to={`/descriptors/${mood}`}
       sx={{
         backgroundColor: "card.bg",
         display: "flex",
