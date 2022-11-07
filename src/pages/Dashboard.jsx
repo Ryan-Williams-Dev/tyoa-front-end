@@ -81,7 +81,7 @@ function Dashboard() {
           <BigMoodCard mood="good">
             <FaThumbsUp />
           </BigMoodCard>
-          <BigMoodCard mood="bad ">
+          <BigMoodCard mood="bad">
             <FaThumbsDown />
           </BigMoodCard>
         </Box>

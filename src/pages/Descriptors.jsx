@@ -1,17 +1,13 @@
 import { useContext } from "react";
 import { Box, Typography } from "@mui/material";
 import { motion } from "framer-motion";
-import { useParams, Navigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { navHeightContext } from "../providers/NavHeightProvider";
 
 function Descriptors() {
   const { navHeight } = useContext(navHeightContext);
   const { mood } = useParams();
 
-  if (mood !== "good" && mood !== "bad") {
-    console.log(mood);
-    return <Navigate to="/" replace />;
-  }
   return (
     <Box
       component={motion.div}

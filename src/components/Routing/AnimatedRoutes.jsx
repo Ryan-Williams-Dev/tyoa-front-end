@@ -2,11 +2,12 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import Dashboard from "../../pages/Dashboard";
 import Login from "../../pages/Login";
 import Register from "../../pages/Register";
-import WithHeader from "../Header/WithHeader";
-import WithoutHeader from "../Header/WithoutHeader";
+import WithHeader from "./WithHeader";
+import WithoutHeader from "./WithoutHeader";
 import Welcome from "../../pages/Welcome";
 import { AnimatePresence } from "framer-motion";
 import Descriptors from "../../pages/Descriptors";
+import DescriptorParamCheckWrapper from "./DescriptorParamCheckWrapper";
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -22,7 +23,9 @@ function AnimatedRoutes() {
 
         <Route element={<WithHeader />}>
           <Route path="/" element={<Dashboard />} />
-          <Route path="/descriptors/:mood" element={<Descriptors />} />
+          <Route element={<DescriptorParamCheckWrapper />}>
+            <Route path="/descriptors/:mood" element={<Descriptors />} />
+          </Route>
         </Route>
       </Routes>
     </AnimatePresence>
