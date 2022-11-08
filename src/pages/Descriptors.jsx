@@ -3,6 +3,7 @@ import { Box, Typography } from "@mui/material";
 import { motion } from "framer-motion";
 import { useParams } from "react-router-dom";
 import { navHeightContext } from "../providers/NavHeightProvider";
+import MoodList from "../components/MoodList/MoodList";
 
 function Descriptors() {
   const { navHeight } = useContext(navHeightContext);
@@ -16,12 +17,14 @@ function Descriptors() {
       exit={{ opacity: 0 }}
       sx={{
         display: "flex",
-        justifyContent: "center",
+        flexDirection: "column",
+        alignItems: "center",
         minHeight: `calc(100vh - ${navHeight}px)`,
         paddingTop: "2em",
       }}
     >
       <Typography variant="h1">{mood}</Typography>
+      <MoodList mood={mood} />
     </Box>
   );
 }
