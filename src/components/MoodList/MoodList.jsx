@@ -46,10 +46,11 @@ function MoodList({ mood }) {
   return (
     <Box
       sx={{
-        maxWidth: "90%",
+        pt: "1em",
+        width: "90%",
         display: "grid",
         gap: "1.5em",
-        gridTemplateColumns: { xs: "repeat(4, 1fr)", md: "repeat(6, 1fr)" },
+        gridTemplateColumns: { xs: "repeat(3, 1fr)", md: "repeat(6, 1fr)" },
       }}
     >
       {mood === "good" &&

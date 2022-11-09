@@ -24,7 +24,7 @@ function AnimatedRoutes() {
         <Route element={<WithHeader />}>
           <Route path="/" element={<Dashboard />} />
           <Route element={<DescriptorParamCheckWrapper />}>
-            <Route path="/descriptors/:mood" element={<Descriptors />} />
+            <Route path="/:mood" element={<Descriptors />} />
           </Route>
         </Route>
       </Routes>

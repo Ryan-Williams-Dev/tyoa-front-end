@@ -1,33 +1,35 @@
 import { Box, Typography } from "@mui/material";
+import { useState } from "react";
 import { FaThumbsUp } from "react-icons/fa";
 
 function MoodListItem({ children }) {
+  let [selected, setSelected] = useState(false);
+
   return (
     <Box
+      onClick={() => setSelected(!selected)}
       sx={{
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        width: "65px",
       }}
     >
       <Box
         sx={{
-          backgroundColor: "card.bg",
+          backgroundColor: selected ? "secondary.main" : "card.bg",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          height: "65px",
-          width: "65px",
+          height: "70px",
+          width: "100px",
           flexGrow: 1,
           borderRadius: "20px",
         }}
       >
-        <Typography variant="h4" color="primary">
-          <FaThumbsUp />
+        <Typography variant="body1" color={selected ? "white" : "primary"}>
+          {children}
         </Typography>
       </Box>
-      <Typography variant="body1">{children}</Typography>
     </Box>
   );
 }

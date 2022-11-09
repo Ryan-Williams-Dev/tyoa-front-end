@@ -6,7 +6,7 @@ function BigMoodCard({ children, mood }) {
     <Button
       variant="contained"
       component={Link}
-      to={`/descriptors/${mood}`}
+      to={`/${mood}`}
       sx={{
         backgroundColor: "card.bg",
         display: "flex",

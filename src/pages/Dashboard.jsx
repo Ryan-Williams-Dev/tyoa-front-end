@@ -6,6 +6,7 @@ import BigMoodCard from "../components/BigMoodCard";
 import { navHeightContext } from "../providers/NavHeightProvider";
 import { FaThumbsUp, FaThumbsDown } from "react-icons/fa";
 import { motion } from "framer-motion";
+import PageTitle from "../components/common/PageTitle";
 
 function Dashboard() {
   const navigate = useNavigate();
@@ -29,41 +30,24 @@ function Dashboard() {
       sx={{
         display: "flex",
         justifyContent: "center",
-        minHeight: `calc(100vh - ${navHeight}px)`,
+        minHeight: "85vh",
       }}
     >
       <Box
         sx={{
           width: "100vw",
-          marginTop: "2em",
           minHeight: "100%",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "flex-start",
+          pt: "1vh",
         }}
       >
-        <Box
-          sx={{
-            width: "85vw",
-            display: "flex",
-            flexDirection: "column",
-            alignSelf: "center",
-            marginY: "0.5em",
-          }}
-        >
-          <Typography variant="h3" fontFamily="Alegreya">
-            Welcome back, {user && userFirstName}!{" "}
-          </Typography>
-          <Typography
-            variant="h4"
-            sx={{
-              opacity: 0.7,
-            }}
-          >
-            How're you feeling today?
-          </Typography>
-        </Box>
+        <PageTitle subText="How're you feeling today?">
+          Welcome back, {user && userFirstName}!{" "}
+        </PageTitle>
+
         <Box
           sx={{
             height: "100%",

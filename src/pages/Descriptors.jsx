@@ -1,9 +1,11 @@
 import { useContext } from "react";
-import { Box, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 import { motion } from "framer-motion";
 import { useParams } from "react-router-dom";
 import { navHeightContext } from "../providers/NavHeightProvider";
 import MoodList from "../components/MoodList/MoodList";
+import PageTitle from "../components/common/PageTitle";
+import PrimaryButton from "../components/common/PrimaryButton";
 
 function Descriptors() {
   const { navHeight } = useContext(navHeightContext);
@@ -19,12 +21,14 @@ function Descriptors() {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        minHeight: `calc(100vh - ${navHeight}px)`,
-        paddingTop: "2em",
+        paddingTop: "1vh",
       }}
     >
-      <Typography variant="h1">{mood}</Typography>
+      <PageTitle subText={"Select all that apply."}>Tell me more...</PageTitle>
       <MoodList mood={mood} />
+      <PrimaryButton undertext="Let us know when your ready">
+        Submit
+      </PrimaryButton>
     </Box>
   );
 }

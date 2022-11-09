@@ -21,10 +21,10 @@ import {
   Tooltip,
 } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
-import { logout, reset } from "../features/auth/authSlice";
+import { logout, reset } from "../../features/auth/authSlice";
 import LogoLink from "./LogoLink";
-import "../styles/hamburger.css";
-import { navHeightContext } from "../providers/NavHeightProvider";
+import "../../styles/hamburger.css";
+import { navHeightContext } from "../../providers/NavHeightProvider";
 
 function Header() {
   const pages = ["Don't", "Click", "Tests"];
@@ -79,7 +79,8 @@ function Header() {
         position="fixed"
         sx={{
           boxShadow: "none",
-          paddingTop: "1em",
+          backgroundColor: "transparent",
+          backdropFilter: "blur(10px)",
         }}
       >
         <Container maxWidth="xl">
@@ -161,7 +162,7 @@ function Header() {
                 flexGrow: "1",
               }}
               extraStylingImg={{
-                maxWidth: "60px",
+                maxWidth: "45px",
               }}
             />
 

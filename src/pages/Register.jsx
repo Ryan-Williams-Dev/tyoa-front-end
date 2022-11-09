@@ -6,11 +6,11 @@ import { toast } from "react-toastify";
 import { register, reset } from "../features/auth/authSlice";
 import StyledTextField from "../components/FormComponents/StyledTextField";
 import StyledFormContainer from "../components/FormComponents/StyledFormContainer";
-import PrimaryButton from "../components/PrimaryButton";
+import PrimaryButton from "../components/common/PrimaryButton";
 import PasswordAdornment from "../components/FormComponents/PasswordAdornment";
-import LogoLink from "../components/LogoLink";
+import LogoLink from "../components/common/LogoLink";
 import { motion } from "framer-motion";
-import LoadingDiv from "../components/LoadingDiv";
+import LoadingDiv from "../components/common/LoadingDiv";
 
 function Register() {
   const nameRef = useRef(null);

@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import LogoAndWelcome from "./LogoAndWelcome";
-import PrimaryButton from "../PrimaryButton";
+import PrimaryButton from "../common/PrimaryButton";
 import useIntersectionObserver from "../../hooks/useIntersectionObserver";
 
 function LandingSection() {
