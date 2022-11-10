@@ -9,7 +9,6 @@ function LoadingDiv() {
         marginTop: "10vh",
         height: "80vh",
         width: "100vw",
-        display: "flex",
         justifyContent: "space-evenly",
         alignItems: "center",
       }}

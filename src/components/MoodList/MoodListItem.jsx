@@ -1,13 +1,9 @@
 import { Box, Typography } from "@mui/material";
-import { useState } from "react";
-import { FaThumbsUp } from "react-icons/fa";
 
-function MoodListItem({ children }) {
-  let [selected, setSelected] = useState(false);
-
+function MoodListItem({ children, selected, clickHandler }) {
   return (
     <Box
-      onClick={() => setSelected(!selected)}
+      onClick={clickHandler}
       sx={{
         display: "flex",
         flexDirection: "column",

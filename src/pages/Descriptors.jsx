@@ -1,15 +1,24 @@
-import { useContext } from "react";
+import { useState } from "react";
 import { Box } from "@mui/material";
 import { motion } from "framer-motion";
 import { useParams } from "react-router-dom";
-import { navHeightContext } from "../providers/NavHeightProvider";
 import MoodList from "../components/MoodList/MoodList";
 import PageTitle from "../components/common/PageTitle";
 import PrimaryButton from "../components/common/PrimaryButton";
+import { useEffect } from "react";
 
 function Descriptors() {
-  const { navHeight } = useContext(navHeightContext);
   const { mood } = useParams();
+  let [selected, setSelected] = useState({});
+  let [numOfSelected, setNumOfSelected] = useState(0);
+
+  useEffect(() => {
+    let count = 0;
+    for (const key in selected) {
+      if (selected[key] === true) count++;
+    }
+    setNumOfSelected(count);
+  }, [selected]);
 
   return (
     <Box
@@ -24,8 +33,20 @@ function Descriptors() {
         paddingTop: "1vh",
       }}
     >
-      <PageTitle subText={"Select all that apply."}>Tell me more...</PageTitle>
-      <MoodList mood={mood} />
+      <PageTitle
+        subText={
+          numOfSelected < 1
+            ? "Select all which apply."
+            : `${numOfSelected} words selected`
+        }
+      >
+        Tell me more...
+      </PageTitle>
+      <MoodList
+        selectedState={selected}
+        setSelectedState={setSelected}
+        mood={mood}
+      />
       <PrimaryButton undertext="Let us know when your ready">
         Submit
       </PrimaryButton>

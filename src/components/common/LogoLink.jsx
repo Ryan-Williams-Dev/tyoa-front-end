@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function LogoLink({ extraStylingImg, extraStylingContainer }) {
   const navigate = useNavigate();

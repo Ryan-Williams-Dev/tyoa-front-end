@@ -1,9 +1,8 @@
-import { useEffect, useContext } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { Box, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 import BigMoodCard from "../components/BigMoodCard";
-import { navHeightContext } from "../providers/NavHeightProvider";
 import { FaThumbsUp, FaThumbsDown } from "react-icons/fa";
 import { motion } from "framer-motion";
 import PageTitle from "../components/common/PageTitle";
@@ -11,7 +10,6 @@ import PageTitle from "../components/common/PageTitle";
 function Dashboard() {
   const navigate = useNavigate();
   const { user } = useSelector((state) => state.auth);
-  const { navHeight } = useContext(navHeightContext);
 
   useEffect(() => {
     if (!user) {

@@ -1,5 +1,7 @@
+import { useState } from "react";
 import { Box } from "@mui/material";
 import MoodListItem from "./MoodListItem";
+import { useEffect } from "react";
 
 const goodMoods = [
   "Joyful",
@@ -42,7 +44,14 @@ const badMoods = [
   "Unconfident",
 ];
 
-function MoodList({ mood }) {
+function MoodList({ mood, selectedState, setSelectedState }) {
+  const itemClickHandler = (moodName) => {
+    setSelectedState({
+      ...selectedState,
+      [moodName]: selectedState[moodName] ? false : true,
+    });
+  };
+
   return (
     <Box
       sx={{
@@ -54,12 +63,28 @@ function MoodList({ mood }) {
       }}
     >
       {mood === "good" &&
-        goodMoods.map((el) => {
-          return <MoodListItem key={el}>{el}</MoodListItem>;
+        goodMoods.map((moodName) => {
+          return (
+            <MoodListItem
+              selected={selectedState[moodName]}
+              clickHandler={() => itemClickHandler(moodName)}
+              key={moodName}
+            >
+              {moodName}
+            </MoodListItem>
+          );
         })}
       {mood === "bad" &&
-        badMoods.map((el) => {
-          return <MoodListItem key={el}>{el}</MoodListItem>;
+        badMoods.map((moodName) => {
+          return (
+            <MoodListItem
+              selected={selectedState[moodName]}
+              clickHandler={() => itemClickHandler(moodName)}
+              key={moodName}
+            >
+              {moodName}
+            </MoodListItem>
+          );
         })}
     </Box>
   );
