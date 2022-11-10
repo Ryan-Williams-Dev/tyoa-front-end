@@ -37,7 +37,7 @@ function Descriptors() {
         subText={
           numOfSelected < 1
             ? "Select all which apply."
-            : `${numOfSelected} words selected`
+            : `${numOfSelected} word${numOfSelected > 1 ? "s" : ""} selected`
         }
       >
         Tell me more...
