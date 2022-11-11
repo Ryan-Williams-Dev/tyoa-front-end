@@ -13,11 +13,7 @@ function Descriptors() {
   let [numOfSelected, setNumOfSelected] = useState(0);
 
   useEffect(() => {
-    let count = 0;
-    for (const key in selected) {
-      if (selected[key] === true) count++;
-    }
-    setNumOfSelected(count);
+    setNumOfSelected(Object.keys(selected).length);
   }, [selected]);
 
   return (
@@ -37,7 +33,7 @@ function Descriptors() {
         subText={
           numOfSelected < 1
             ? "Select all which apply."
-            : `${numOfSelected} word${numOfSelected > 1 ? "s" : ""} selected`
+            : `${numOfSelected} word${numOfSelected > 1 ? "s" : ""} selected.`
         }
       >
         Tell me more...
@@ -48,7 +44,7 @@ function Descriptors() {
         mood={mood}
       />
       <PrimaryButton undertext="Let us know when your ready">
-        Submit
+        Move on
       </PrimaryButton>
     </Box>
   );

@@ -1,7 +1,5 @@
-import { useState } from "react";
 import { Box } from "@mui/material";
 import MoodListItem from "./MoodListItem";
-import { useEffect } from "react";
 
 const goodMoods = [
   "Joyful",
@@ -46,11 +44,19 @@ const badMoods = [
 
 function MoodList({ mood, selectedState, setSelectedState }) {
   const itemClickHandler = (moodName) => {
-    setSelectedState({
+    if (selectedState[moodName] === true) {
+      let newState = { ...selectedState };
+      delete newState[moodName];
+      return setSelectedState(newState);
+    }
+
+    return setSelectedState({
       ...selectedState,
-      [moodName]: selectedState[moodName] ? false : true,
+      [moodName]: true,
     });
   };
+
+  console.log(selectedState);
 
   return (
     <Box
