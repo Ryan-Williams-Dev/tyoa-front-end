@@ -56,8 +56,6 @@ function MoodList({ mood, selectedState, setSelectedState }) {
     });
   };
 
-  console.log(selectedState);
-
   return (
     <Box
       sx={{

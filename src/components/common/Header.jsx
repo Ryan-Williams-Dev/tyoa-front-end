@@ -1,10 +1,4 @@
-import {
-  useState,
-  useEffect,
-  useContext,
-  useRef,
-  useLayoutEffect,
-} from "react";
+import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import { Link, useNavigate } from "react-router-dom";
 import {
@@ -24,17 +18,10 @@ import { useSelector, useDispatch } from "react-redux";
 import { logout, reset } from "../../features/auth/authSlice";
 import LogoLink from "./LogoLink";
 import "../../styles/hamburger.css";
-import { navHeightContext } from "../../providers/NavHeightProvider";
 
 function Header() {
   const pages = ["Don't", "Click", "Tests"];
   const settings = ["Account", "Logout"];
-  const { setHeight } = useContext(navHeightContext);
-  const ref = useRef(null);
-
-  useLayoutEffect(() => {
-    setHeight(ref.current.clientHeight);
-  }, [setHeight]);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -75,7 +62,6 @@ function Header() {
   return (
     <>
       <AppBar
-        ref={ref}
         position="fixed"
         sx={{
           boxShadow: "none",

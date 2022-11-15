@@ -5,18 +5,15 @@ import { store } from "./app/store";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "./index.css";
-import NavHeightProvider from "./providers/NavHeightProvider";
 
 const container = document.getElementById("root");
 const root = createRoot(container);
 
 root.render(
   <React.StrictMode>
-    <NavHeightProvider>
-      <Provider store={store}>
-        <App />
-      </Provider>
-    </NavHeightProvider>
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>
 );
 
