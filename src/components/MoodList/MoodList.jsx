@@ -1,46 +1,7 @@
 import { Box } from "@mui/material";
 import MoodListItem from "./MoodListItem";
 
-const goodMoods = [
-  "Joyful",
-  "Grateful",
-  "Pride",
-  "Serenity",
-  "Interest",
-  "Amused",
-  "Hopeful",
-  "Optimistic",
-  "Loving",
-  "Loved",
-  "Awe",
-  "Inspired",
-  "Elevated",
-  "Altruistic",
-  "Relief",
-  "Confident",
-];
-
-const badMoods = [
-  "Angry",
-  "Emptiness",
-  "Frustration",
-  "Innadequacy",
-  "Helplessness",
-  "Fear",
-  "Guilt",
-  "Lonliness",
-  "Depression",
-  "Overwhelmed",
-  "Resentful",
-  "Failure",
-  "Sadness",
-  "Jealous",
-  "Uninterested",
-  "Bored",
-  "Pessimistic",
-  "Selfish",
-  "Unconfident",
-];
+// deleted moods, insert fetch for moods here
 
 function MoodList({ mood, selectedState, setSelectedState }) {
   const itemClickHandler = (moodName) => {

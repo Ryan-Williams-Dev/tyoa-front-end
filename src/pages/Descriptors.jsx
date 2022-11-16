@@ -43,7 +43,12 @@ function Descriptors() {
         setSelectedState={setSelected}
         mood={mood}
       />
-      <PrimaryButton undertext="Let us know when your ready">
+      <PrimaryButton
+        extraStyles={{
+          width: "min(400px, 87vw)",
+        }}
+        undertext="Let us know when your ready"
+      >
         Move on
       </PrimaryButton>
     </Box>
