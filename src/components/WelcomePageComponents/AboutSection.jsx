@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { Box, Typography } from "@mui/material";
-import useIntersectionObserver from "../../hooks/useIntersectionObserver";
+import useIntersectionObserver from "../common/hooks/useIntersectionObserver";
 
 function AboutSection() {
   const ref = useRef(null);

@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import LogoAndWelcome from "./LogoAndWelcome";
 import PrimaryButton from "../common/PrimaryButton";
-import useIntersectionObserver from "../../hooks/useIntersectionObserver";
+import useIntersectionObserver from "../common/hooks/useIntersectionObserver";
 
 function LandingSection() {
   const ref = useRef(null);

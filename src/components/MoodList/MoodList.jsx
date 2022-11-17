@@ -17,6 +17,9 @@ function MoodList({ mood, selectedState, setSelectedState }) {
     });
   };
 
+  const goodMoods = [];
+  const badMoods = [];
+
   return (
     <Box
       sx={{
