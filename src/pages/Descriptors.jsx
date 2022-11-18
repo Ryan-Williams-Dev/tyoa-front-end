@@ -6,8 +6,11 @@ import MoodList from "../components/MoodList/MoodList";
 import PageTitle from "../components/common/PageTitle";
 import PrimaryButton from "../components/common/PrimaryButton";
 import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { get } from "../features/moods/moodSlice";
 
 function Descriptors() {
+  const dispatch = useDispatch();
   const { mood } = useParams();
   let [selected, setSelected] = useState({});
   let [numOfSelected, setNumOfSelected] = useState(0);
@@ -15,6 +18,10 @@ function Descriptors() {
   useEffect(() => {
     setNumOfSelected(Object.keys(selected).length);
   }, [selected]);
+
+  useEffect(() => {
+    dispatch(get());
+  }, [dispatch]);
 
   return (
     <Box

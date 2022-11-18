@@ -12,7 +12,7 @@ const initialState = {
   message: "",
 };
 
-export const get = createAsyncThunk("moods/get", async (user, thunkAPI) => {
+export const get = createAsyncThunk("moods/get", async (thunkAPI) => {
   try {
     return await moodsService.get();
   } catch (error) {
@@ -33,11 +33,36 @@ export const moodsSlice = createSlice({
       state.isError = false;
       state.isLoading = false;
       state.isSuccess = false;
-      message = "";
+      state.message = "";
+    },
+    selectMood: (state, action) => {
+      state.selectedMoods.push(action.payload);
+    },
+    deselectMood: (state, action) => {
+      const newSelected = state.selectedMoods.filter(
+        (mood) => mood._id !== action.payload
+      );
+      state.selectedMoods = newSelected;
     },
   },
-  extraReducers: () => {},
+  extraReducers: (builder) => {
+    builder
+      .addCase(get.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(get.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isSuccess = true;
+        state.moods = action.payload;
+      })
+      .addCase(get.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isError = true;
+        state.message = action.payload;
+        state.moods = null;
+      });
+  },
 });
 
-export const { reset } = authSlice.actions;
+export const { reset, selectMood, deselectMood } = moodsSlice.actions;
 export default moodsSlice.reducer;

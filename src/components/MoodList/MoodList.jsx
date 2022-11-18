@@ -1,14 +1,14 @@
 import { Box } from "@mui/material";
 import MoodListItem from "./MoodListItem";
-import useFetch from "../common/hooks/useFetch";
 import LoadingDiv from "../common/LoadingDiv";
 import { useEffect } from "react";
 import { toast } from "react-toastify";
-
-// deleted moods, insert fetch for moods here
+import { useSelector } from "react-redux";
 
 function MoodList({ mood, selectedState, setSelectedState }) {
-  const { data, error, loading } = useFetch("/api/moods");
+  // const { data, error, loading } = useFetch("/api/moods");
+  const { moods, selectedMoods, isLoading, isError, isSuccess, message } =
+    useSelector((state) => state.moods);
 
   const itemClickHandler = (moodName) => {
     if (selectedState[moodName] === true) {
@@ -24,10 +24,10 @@ function MoodList({ mood, selectedState, setSelectedState }) {
   };
 
   useEffect(() => {
-    if (error) {
-      toast.error(error);
+    if (isError) {
+      toast.error(message);
     }
-  }, [error]);
+  }, [isError, message]);
 
   return (
     <Box
@@ -39,10 +39,10 @@ function MoodList({ mood, selectedState, setSelectedState }) {
         gridTemplateColumns: { xs: "repeat(3, 1fr)", md: "repeat(6, 1fr)" },
       }}
     >
-      {loading && <LoadingDiv />}
+      {isLoading && <LoadingDiv />}
 
-      {data &&
-        data.map((element) => {
+      {moods &&
+        moods.map((element) => {
           const moodName = element[mood];
           const moodId = element["_id"];
           return (

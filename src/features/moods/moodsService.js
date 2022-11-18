@@ -8,6 +8,8 @@ const get = async () => {
   return response.data;
 };
 
-export default moodsService = {
+const moodsService = {
   get,
 };
+
+export default moodsService;
