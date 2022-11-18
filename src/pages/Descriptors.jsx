@@ -49,7 +49,7 @@ function Descriptors() {
         }}
         undertext="Let us know when your ready"
       >
-        Move on
+        Submit
       </PrimaryButton>
     </Box>
   );
