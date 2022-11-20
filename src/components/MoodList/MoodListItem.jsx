@@ -1,9 +1,14 @@
 import { Box, Typography } from "@mui/material";
 
-function MoodListItem({ children, selected, clickHandler }) {
+function MoodListItem({
+  children,
+  isSelected,
+  selectMoodHandler,
+  deselectMoodHandler,
+}) {
   return (
     <Box
-      onClick={clickHandler}
+      onClick={isSelected ? deselectMoodHandler : selectMoodHandler}
       sx={{
         display: "flex",
         flexDirection: "column",
@@ -12,7 +17,7 @@ function MoodListItem({ children, selected, clickHandler }) {
     >
       <Box
         sx={{
-          backgroundColor: selected ? "secondary.main" : "card.bg",
+          backgroundColor: isSelected ? "secondary.main" : "card.bg",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
@@ -20,9 +25,22 @@ function MoodListItem({ children, selected, clickHandler }) {
           width: "100px",
           flexGrow: 1,
           borderRadius: "20px",
+
+          "@media (hover: hover)": {
+            "&:hover": {
+              opacity: "80%",
+            },
+          },
+          "&:active": {
+            opacity: "80%",
+          },
         }}
       >
-        <Typography variant="body1" color={selected ? "white" : "primary"}>
+        <Typography
+          sx={{ userSelect: "none" }}
+          variant="body1"
+          color={isSelected ? "white" : "primary"}
+        >
           {children}
         </Typography>
       </Box>

@@ -40,7 +40,7 @@ export const moodsSlice = createSlice({
     },
     deselectMood: (state, action) => {
       const newSelected = state.selectedMoods.filter(
-        (mood) => mood._id !== action.payload
+        (mood) => mood !== action.payload
       );
       state.selectedMoods = newSelected;
     },

@@ -3,25 +3,14 @@ import MoodListItem from "./MoodListItem";
 import LoadingDiv from "../common/LoadingDiv";
 import { useEffect } from "react";
 import { toast } from "react-toastify";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { selectMood, deselectMood } from "../../features/moods/moodSlice";
 
-function MoodList({ mood, selectedState, setSelectedState }) {
-  // const { data, error, loading } = useFetch("/api/moods");
-  const { moods, selectedMoods, isLoading, isError, isSuccess, message } =
-    useSelector((state) => state.moods);
-
-  const itemClickHandler = (moodName) => {
-    if (selectedState[moodName] === true) {
-      let newState = { ...selectedState };
-      delete newState[moodName];
-      return setSelectedState(newState);
-    }
-
-    return setSelectedState({
-      ...selectedState,
-      [moodName]: true,
-    });
-  };
+function MoodList({ mood }) {
+  const dispatch = useDispatch();
+  const { moods, selectedMoods, isLoading, isError, message } = useSelector(
+    (state) => state.moods
+  );
 
   useEffect(() => {
     if (isError) {
@@ -44,11 +33,12 @@ function MoodList({ mood, selectedState, setSelectedState }) {
       {moods &&
         moods.map((element) => {
           const moodName = element[mood];
-          const moodId = element["_id"];
+          const moodId = element._id;
           return (
             <MoodListItem
-              selected={selectedState[moodId]}
-              clickHandler={() => itemClickHandler(moodId)}
+              isSelected={selectedMoods.includes(moodId)}
+              selectMoodHandler={() => dispatch(selectMood(moodId))}
+              deselectMoodHandler={() => dispatch(deselectMood(moodId))}
               key={moodId}
             >
               {moodName}
