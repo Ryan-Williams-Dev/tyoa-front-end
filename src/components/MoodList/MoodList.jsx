@@ -20,7 +20,7 @@ function MoodList({ mood }) {
 
   return (
     <>
-      {isLoading && <LoadingDiv />}
+      {isLoading && <LoadingDiv>Fetching emotions...</LoadingDiv>}
       {moods && (
         <Box
           sx={{

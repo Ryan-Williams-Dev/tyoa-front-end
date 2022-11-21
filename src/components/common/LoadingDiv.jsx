@@ -14,17 +14,29 @@ function LoadingDiv({ children }) {
       }}
     >
       <CircularProgress size={100} color="secondary" />
-      <Typography
-        variant="h4"
-        sx={{
-          width: "80vw",
-        }}
-      >
-        The back-end of this application is running on a free heroku plan, thus
-        may be a little slow to start up. If this loading screen takes a while
-        don't worry.
-        <br /> Thank you for your patience.
-      </Typography>
+      {children && (
+        <Typography
+          variant="h4"
+          sx={{
+            width: "80vw",
+          }}
+        >
+          {children}
+        </Typography>
+      )}
+      {!children && (
+        <Typography
+          variant="h4"
+          sx={{
+            width: "80vw",
+          }}
+        >
+          The back-end of this application is running on a free heroku plan,
+          thus may be a little slow to start up. If this loading screen takes a
+          while don't worry.
+          <br /> Thank you for your patience.
+        </Typography>
+      )}
     </Box>
   );
 }

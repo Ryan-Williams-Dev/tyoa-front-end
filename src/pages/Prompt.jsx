@@ -1,8 +1,13 @@
 import { Box } from "@mui/material";
 import PageTitle from "../components/common/PageTitle";
 import { motion } from "framer-motion";
+import { useSelector } from "react-redux";
+import promptMaker from "../components/Prompt/utils/promptMaker";
 
 function Prompt() {
+  const { moods, selectedMoods } = useSelector((state) => state.moods);
+  const prompt = promptMaker(moods, selectedMoods);
+
   return (
     <Box
       component={motion.div}
@@ -17,6 +22,7 @@ function Prompt() {
       }}
     >
       <PageTitle>Share your positivity</PageTitle>
+      <PageTitle>{prompt}</PageTitle>
     </Box>
   );
 }
