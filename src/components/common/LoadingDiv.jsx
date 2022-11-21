@@ -1,6 +1,6 @@
 import { Box, CircularProgress, Typography } from "@mui/material";
 
-function LoadingDiv() {
+function LoadingDiv({ children }) {
   return (
     <Box
       sx={{

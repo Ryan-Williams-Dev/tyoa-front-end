@@ -8,6 +8,8 @@ import Welcome from "../../pages/Welcome";
 import { AnimatePresence } from "framer-motion";
 import Descriptors from "../../pages/Descriptors";
 import DescriptorParamCheckWrapper from "./DescriptorParamCheckWrapper";
+import Prompt from "../../pages/Prompt";
+import Response from "../../pages/Response";
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -26,6 +28,8 @@ function AnimatedRoutes() {
           <Route element={<DescriptorParamCheckWrapper />}>
             <Route path="/:mood" element={<Descriptors />} />
           </Route>
+          <Route path="/prompt" element={<Prompt />} />
+          <Route path="/response" element={<Response />} />
         </Route>
       </Routes>
     </AnimatePresence>

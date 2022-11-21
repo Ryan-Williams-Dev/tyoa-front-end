@@ -6,6 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 import CssBaseline from "@mui/material/CssBaseline";
 import "./styles/scrollAnimate.css";
 import AnimatedRoutes from "./components/Routing/AnimatedRoutes";
+import "./styles/toastStyling.css";
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
         <Router>
           <AnimatedRoutes />
         </Router>
-        <ToastContainer />
+        <ToastContainer theme="dark" />
       </>
     </ThemeProvider>
   );

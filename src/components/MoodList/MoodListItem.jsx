@@ -13,6 +13,7 @@ function MoodListItem({
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
+        userSelect: "none",
       }}
     >
       <Box
@@ -21,14 +22,23 @@ function MoodListItem({
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          height: "70px",
-          width: "100px",
+          height: {
+            xs: "70px",
+            sm: "100px",
+            md: "130px",
+          },
+          width: {
+            xs: "100px",
+            sm: "143px",
+            md: "185px",
+          },
           flexGrow: 1,
           borderRadius: "20px",
 
           "@media (hover: hover)": {
             "&:hover": {
               opacity: "80%",
+              cursor: "pointer",
             },
           },
           "&:active": {
@@ -37,9 +47,14 @@ function MoodListItem({
         }}
       >
         <Typography
-          sx={{ userSelect: "none" }}
           variant="body1"
           color={isSelected ? "white" : "primary"}
+          sx={{
+            fontSize: {
+              sm: 20,
+              md: 28,
+            },
+          }}
         >
           {children}
         </Typography>

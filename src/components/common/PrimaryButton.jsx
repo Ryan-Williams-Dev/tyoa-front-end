@@ -9,6 +9,7 @@ function PrimaryButton({
   undertextBold,
   undertextRoute,
   extraStyles,
+  clickHandler,
 }) {
   return (
     <Box
@@ -21,6 +22,7 @@ function PrimaryButton({
       }}
     >
       <Button
+        onClick={clickHandler}
         type={buttonType ? buttonType : ""}
         variant="contained"
         color="secondary"

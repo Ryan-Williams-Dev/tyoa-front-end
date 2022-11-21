@@ -28,7 +28,7 @@ export const moodsSlice = createSlice({
   name: "moods",
   initialState,
   reducers: {
-    reset: (state) => {
+    resetSelectedMoods: (state) => {
       state.selectedMoods = [];
       state.isError = false;
       state.isLoading = false;
@@ -64,5 +64,6 @@ export const moodsSlice = createSlice({
   },
 });
 
-export const { reset, selectMood, deselectMood } = moodsSlice.actions;
+export const { resetSelectedMoods, selectMood, deselectMood } =
+  moodsSlice.actions;
 export default moodsSlice.reducer;

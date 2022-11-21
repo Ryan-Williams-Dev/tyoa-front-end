@@ -1,23 +1,29 @@
-import { useState } from "react";
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { motion } from "framer-motion";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import MoodList from "../components/MoodList/MoodList";
 import PageTitle from "../components/common/PageTitle";
 import PrimaryButton from "../components/common/PrimaryButton";
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { get } from "../features/moods/moodSlice";
+import { toast } from "react-toastify";
 
 function Descriptors() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { mood } = useParams();
-  let [selected, setSelected] = useState({});
-  let [numOfSelected, setNumOfSelected] = useState(0);
+  const { selectedMoods } = useSelector((state) => state.moods);
+  const numOfSelected = selectedMoods.length;
 
-  useEffect(() => {
-    setNumOfSelected(Object.keys(selected).length);
-  }, [selected]);
+  const onSubmit = (mood) => {
+    if (numOfSelected < 1) {
+      return toast.info(
+        <Typography variant="h6">Select at least one emotion</Typography>
+      );
+    }
+    navigate(mood === "good" ? "/prompt" : "/response");
+  };
 
   useEffect(() => {
     dispatch(get());
@@ -40,17 +46,16 @@ function Descriptors() {
         subText={
           numOfSelected < 1
             ? "Select all which apply."
-            : `${numOfSelected} word${numOfSelected > 1 ? "s" : ""} selected.`
+            : `${numOfSelected} emotion${
+                numOfSelected > 1 ? "s" : ""
+              } selected.`
         }
       >
         Tell me more...
       </PageTitle>
-      <MoodList
-        selectedState={selected}
-        setSelectedState={setSelected}
-        mood={mood}
-      />
+      <MoodList mood={mood} />
       <PrimaryButton
+        clickHandler={() => onSubmit(mood)}
         extraStyles={{
           width: "min(400px, 87vw)",
         }}

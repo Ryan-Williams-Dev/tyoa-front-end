@@ -19,33 +19,39 @@ function MoodList({ mood }) {
   }, [isError, message]);
 
   return (
-    <Box
-      sx={{
-        pt: "1em",
-        width: "90%",
-        display: "grid",
-        gap: "1.5em",
-        gridTemplateColumns: { xs: "repeat(3, 1fr)", md: "repeat(6, 1fr)" },
-      }}
-    >
+    <>
       {isLoading && <LoadingDiv />}
-
-      {moods &&
-        moods.map((element) => {
-          const moodName = element[mood];
-          const moodId = element._id;
-          return (
-            <MoodListItem
-              isSelected={selectedMoods.includes(moodId)}
-              selectMoodHandler={() => dispatch(selectMood(moodId))}
-              deselectMoodHandler={() => dispatch(deselectMood(moodId))}
-              key={moodId}
-            >
-              {moodName}
-            </MoodListItem>
-          );
-        })}
-    </Box>
+      {moods && (
+        <Box
+          sx={{
+            pt: "1em",
+            width: "90%",
+            display: "grid",
+            gap: "1.5em",
+            gridTemplateColumns: {
+              xs: "repeat(3, 1fr)",
+              md: "repeat(4, 1fr)",
+              xl: "repeat(6, 1fr)",
+            },
+          }}
+        >
+          {moods.map((element) => {
+            const moodName = element[mood];
+            const moodId = element._id;
+            return (
+              <MoodListItem
+                isSelected={selectedMoods.includes(moodId)}
+                selectMoodHandler={() => dispatch(selectMood(moodId))}
+                deselectMoodHandler={() => dispatch(deselectMood(moodId))}
+                key={moodId}
+              >
+                {moodName}
+              </MoodListItem>
+            );
+          })}
+        </Box>
+      )}
+    </>
   );
 }
 

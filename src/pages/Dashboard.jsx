@@ -1,21 +1,24 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { Box } from "@mui/material";
 import BigMoodCard from "../components/BigMoodCard";
 import { FaThumbsUp, FaThumbsDown } from "react-icons/fa";
 import { motion } from "framer-motion";
 import PageTitle from "../components/common/PageTitle";
+import { resetSelectedMoods } from "../features/moods/moodSlice";
 
 function Dashboard() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const { user } = useSelector((state) => state.auth);
 
   useEffect(() => {
     if (!user) {
       navigate("/welcome");
     }
-  }, [user, navigate]);
+    dispatch(resetSelectedMoods());
+  }, [user, navigate, dispatch]);
 
   const userFirstName = user && user.name.split(" ")[0];
 
