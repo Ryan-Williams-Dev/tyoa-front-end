@@ -15,6 +15,7 @@ function PrimaryButton({
     <Box
       sx={{
         ...extraStyles,
+        width: "min(400px, 87vw)",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",

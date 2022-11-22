@@ -5,7 +5,7 @@
  */
 const promptMaker = (moods, selectedMoods) => {
   const length = selectedMoods.length;
-  let result = `What would you say to someone who was struggling with ${
+  let result = `What would you say to someone who is struggling with ${
     length > 1 ? "feelings of" : "the feeling of"
   }`;
 

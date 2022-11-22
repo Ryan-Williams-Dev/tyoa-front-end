@@ -90,13 +90,16 @@ function Register() {
           }}
         >
           <LogoLink extraStylingImg={{ marginBottom: "1.5em" }} />
+
           <Typography variant="h2" fontWeight="regular">
             Sign Up
           </Typography>
+
           <Typography variant="body1" fontSize={20} color="text.secondary">
             Begin your journey of self-guidance.
           </Typography>
         </Box>
+
         <StyledTextField
           variant="standard"
           inputRef={nameRef}
@@ -104,6 +107,7 @@ function Register() {
           required
           label="Name"
         ></StyledTextField>
+
         <StyledTextField
           variant="standard"
           inputRef={emailRef}
@@ -111,6 +115,7 @@ function Register() {
           required
           label="Email"
         ></StyledTextField>
+
         <StyledTextField
           variant="standard"
           inputRef={passwordRef}
@@ -126,6 +131,7 @@ function Register() {
             ),
           }}
         ></StyledTextField>
+
         <StyledTextField
           variant="standard"
           inputRef={passwordConfirmRef}
@@ -141,6 +147,7 @@ function Register() {
             ),
           }}
         ></StyledTextField>
+
         <PrimaryButton
           undertext="Already have an account?"
           undertextBold="Sign In"
