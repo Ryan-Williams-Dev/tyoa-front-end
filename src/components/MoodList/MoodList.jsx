@@ -4,7 +4,7 @@ import LoadingDiv from "../common/LoadingDiv";
 import { useEffect } from "react";
 import { toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
-import { selectMood, deselectMood } from "../../features/moods/moodSlice";
+import { selectMood, deselectMood } from "../../features/moods/moodsSlice";
 
 function MoodList({ mood }) {
   const dispatch = useDispatch();

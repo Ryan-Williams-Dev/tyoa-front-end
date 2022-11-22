@@ -25,9 +25,9 @@ function Prompt() {
     }
   };
 
-  // next task fix this
   const onSubmit = (event, input) => {
-    event.preventDefault;
+    event.preventDefault();
+    console.log(input);
   };
 
   return (

@@ -6,7 +6,7 @@ import PageTitle from "../components/common/PageTitle";
 import PrimaryButton from "../components/common/PrimaryButton";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { get } from "../features/moods/moodSlice";
+import { get } from "../features/moods/moodsSlice";
 import { toast } from "react-toastify";
 
 function Descriptors() {

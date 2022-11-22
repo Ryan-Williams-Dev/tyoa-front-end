@@ -6,7 +6,7 @@ import BigMoodCard from "../components/BigMoodCard";
 import { FaThumbsUp, FaThumbsDown } from "react-icons/fa";
 import { motion } from "framer-motion";
 import PageTitle from "../components/common/PageTitle";
-import { resetSelectedMoods } from "../features/moods/moodSlice";
+import { resetSelectedMoods } from "../features/moods/moodsSlice";
 
 function Dashboard() {
   const navigate = useNavigate();
