@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Box, TextField, Typography } from "@mui/material";
 import PageTitle from "../components/common/PageTitle";
 import { motion } from "framer-motion";
@@ -15,20 +15,22 @@ function Prompt() {
 
   const handleChange = (event) => {
     setInput(event.target.value);
-
-    if (input.length > 500) {
-      setHelperText("Please keep your response to a maximum of 500 characters");
-    } else if (input.length < 25) {
-      setHelperText("Please share more!");
-    } else {
-      setHelperText("");
-    }
   };
 
   const onSubmit = (event, input) => {
     event.preventDefault();
     console.log(input);
   };
+
+  useEffect(() => {
+    if (input.length > 500) {
+      setHelperText("Please keep your response to a maximum of 500 characters");
+    } else if (input.length < 25) {
+      setHelperText("Please share more!");
+    } else {
+      setHelperText(`${input.length} / 500`);
+    }
+  }, [input]);
 
   return (
     <Box
