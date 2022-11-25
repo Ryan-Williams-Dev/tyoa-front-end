@@ -74,7 +74,7 @@ export const responsesSlice = createSlice({
       .addCase(getResponse.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isSuccess = true;
-        state.response = action.payload;
+        state.response = action.payload.response;
       })
       .addCase(getResponse.rejected, (state, action) => {
         state.isLoading = false;

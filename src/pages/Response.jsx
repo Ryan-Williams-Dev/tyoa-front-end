@@ -14,9 +14,10 @@ function Response() {
   );
   const { selectedMoods } = useSelector((state) => state.moods);
 
-  // bug fix tomorrow => request not sending token
   useEffect(() => {
-    dispatch(getResponse(selectedMoods));
+    if (selectedMoods) {
+      dispatch(getResponse(selectedMoods));
+    }
   }, []);
 
   useEffect(() => {
@@ -42,7 +43,7 @@ function Response() {
         Sorry to hear that.
       </PageTitle>
       {isLoading && <LoadingDiv />}
-      {response.text && <Typography>{response.text}</Typography>}
+      {response && <Typography>{response.text}</Typography>}
     </Box>
   );
 }

@@ -18,11 +18,10 @@ const getResponse = async (selectedMoods, token) => {
     headers: {
       Authorization: `Bearer ${token}`,
     },
+    params: { selectedMoods },
   };
 
-  console.log(config);
-
-  const response = await axios.get(API_URL, selectedMoods, config);
+  const response = await axios.get(API_URL, config);
   return response.data;
 };
 
