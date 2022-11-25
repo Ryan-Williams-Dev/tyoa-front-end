@@ -8,6 +8,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { get } from "../features/moods/moodsSlice";
 import { toast } from "react-toastify";
+import { reset } from "../features/responses/responsesSlice";
 
 function Descriptors() {
   const dispatch = useDispatch();
@@ -27,6 +28,7 @@ function Descriptors() {
 
   useEffect(() => {
     dispatch(get());
+    dispatch(reset());
   }, [dispatch]);
 
   return (

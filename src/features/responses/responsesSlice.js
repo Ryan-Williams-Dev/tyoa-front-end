@@ -27,6 +27,24 @@ export const createResponse = createAsyncThunk(
   }
 );
 
+export const getResponse = createAsyncThunk(
+  "responses/get",
+  async (selectedMoods, thunkAPI) => {
+    try {
+      const token = thunkAPI.getState().auth.user.token;
+      return await responsesService.getResponse(selectedMoods, token);
+    } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+      return thunkAPI.rejectWithValue(message);
+    }
+  }
+);
+
 export const responsesSlice = createSlice({
   name: "responses",
   initialState,
@@ -35,6 +53,7 @@ export const responsesSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
+      // createResponse cases
       .addCase(createResponse.pending, (state) => {
         state.isLoading = true;
       })
@@ -44,6 +63,20 @@ export const responsesSlice = createSlice({
         state.message = action.payload.message;
       })
       .addCase(createResponse.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isError = true;
+        state.message = action.payload;
+      })
+      // getResponse cases
+      .addCase(getResponse.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(getResponse.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isSuccess = true;
+        state.response = action.payload;
+      })
+      .addCase(getResponse.rejected, (state, action) => {
         state.isLoading = false;
         state.isError = true;
         state.message = action.payload;
