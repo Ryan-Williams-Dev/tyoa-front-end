@@ -1,36 +1,75 @@
 import { useEffect, useState } from "react";
-import { Box, TextField, Typography } from "@mui/material";
+import { Box, CircularProgress, TextField, Typography } from "@mui/material";
 import PageTitle from "../components/common/PageTitle";
 import { motion } from "framer-motion";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import promptMaker from "../components/Prompt/utils/promptMaker";
 import PrimaryButton from "../components/common/PrimaryButton";
+import { createResponse, reset } from "../features/responses/responsesSlice";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 function Prompt() {
   const { moods, selectedMoods } = useSelector((state) => state.moods);
   const { user } = useSelector((state) => state.auth);
+  const { isLoading, isError, isSuccess, message } = useSelector(
+    (state) => state.responses
+  );
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const prompt = promptMaker(moods, selectedMoods);
+
   const [input, setInput] = useState("");
   const [helperText, setHelperText] = useState("");
+  const [valid, setValid] = useState(false);
 
   const handleChange = (event) => {
     setInput(event.target.value);
   };
 
-  const onSubmit = (event, input) => {
-    event.preventDefault();
-    console.log(input);
-  };
-
   useEffect(() => {
     if (input.length > 500) {
       setHelperText("Please keep your response to a maximum of 500 characters");
+      setValid(false);
     } else if (input.length < 25) {
       setHelperText("Please share more!");
+      setValid(false);
     } else {
       setHelperText(`${input.length} / 500`);
+      setValid(true);
     }
   }, [input]);
+
+  useEffect(() => {
+    if (isError) {
+      toast.error(<Typography variant="h6">{message}</Typography>);
+      dispatch(reset());
+    }
+    if (isSuccess) {
+      toast.info(<Typography variant="h6">{message}</Typography>);
+      dispatch(reset());
+      navigate("/");
+    }
+  }, [isError, isSuccess, message, dispatch]);
+
+  const onSubmit = (event) => {
+    event.preventDefault();
+
+    if (!valid) {
+      return setHelperText(
+        "Please ensure your response is between 25 and 500 characters long!"
+      );
+    }
+
+    const responseData = {
+      text: input,
+      selectedMoods,
+    };
+
+    return dispatch(createResponse(responseData));
+  };
 
   return (
     <Box
@@ -43,8 +82,9 @@ function Prompt() {
         flexDirection: "column",
         alignItems: "center",
         paddingTop: "1vh",
-        height: "90vh",
+        minHeight: "90vh",
         justifyContent: "space-between",
+        marginBottom: "1em",
       }}
     >
       <PageTitle>
@@ -87,10 +127,10 @@ function Prompt() {
 
       <PrimaryButton
         buttonType="submit"
-        clickHandler={(event) => onSubmit(event, input)}
+        clickHandler={(event) => onSubmit(event, input, selectedMoods)}
         undertext="Thanks for sharing your positivity"
       >
-        Submit
+        {isLoading ? <CircularProgress /> : "Submit"}
       </PrimaryButton>
     </Box>
   );

@@ -1,8 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import moodsService from "./moodsService";
 
-// const user = JSON.parse(localStorage.getItem("user"));
-
 const initialState = {
   moods: [],
   selectedMoods: [],
