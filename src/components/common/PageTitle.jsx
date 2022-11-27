@@ -4,11 +4,12 @@ function PageTitle({ children, subText }) {
   return (
     <Box
       sx={{
-        width: "85vw",
+        width: "min(90vw, 1488px)",
         display: "flex",
         flexDirection: "column",
         alignSelf: "center",
         marginY: "0.5em",
+        pl: "10px",
       }}
     >
       <Typography variant="h3" fontFamily="Alegreya">

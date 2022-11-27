@@ -69,31 +69,23 @@ function Header() {
           backdropFilter: "blur(10px)",
         }}
       >
-        <Container maxWidth="xl">
-          <Toolbar disableGutters>
-            <Typography
-              variant="h6"
-              noWrap
-              component={Link}
-              to="/"
-              sx={{
-                mr: 2,
-                display: { xs: "none", md: "flex" },
-                fontFamily: "monospace",
-                fontWeight: 700,
-                letterSpacing: ".3rem",
-                color: "inherit",
-                textDecoration: "none",
-              }}
-            >
-              T Y O A
-            </Typography>
-
+        <Container
+          maxWidth="xl"
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+          }}
+        >
+          <Toolbar
+            disableGutters
+            sx={{ width: "min(90vw, 1488px)", mr: "0px" }}
+          >
             <Box
               sx={{
                 flexGrow: 1,
                 display: { xs: "flex", md: "none" },
                 alignContent: "center",
+                justifyContent: "space-between",
               }}
             >
               <IconButton
@@ -104,7 +96,6 @@ function Header() {
                 onClick={handleOpenNavMenu}
                 color="inherit"
               >
-                {/* <FaBars /> */}
                 <div className={`${anchorElNav ? "open " : " "}wrapper-menu`}>
                   <div className="line-menu half start" />
                   <div className="line-menu" />
@@ -135,6 +126,9 @@ function Header() {
                     to={`/${page.toLowerCase()}`}
                     key={page}
                     onClick={handleCloseNavMenu}
+                    sx={{
+                      textAlign: "center",
+                    }}
                   >
                     <Typography color="primary" variant="h6" textAlign="center">
                       {page}
@@ -145,7 +139,10 @@ function Header() {
             </Box>
             <LogoLink
               extraStylingContainer={{
-                flexGrow: "1",
+                flexGrow: {
+                  xs: "1",
+                  md: "0",
+                },
               }}
               extraStylingImg={{
                 maxWidth: "45px",

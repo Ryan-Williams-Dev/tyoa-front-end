@@ -6,19 +6,22 @@ import { useEffect } from "react";
 import { toast } from "react-toastify";
 import { getResponse } from "../features/responses/responsesSlice";
 import LoadingDiv from "../components/common/LoadingDiv";
+import { useNavigate } from "react-router-dom";
 
 function Response() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { isLoading, isError, message, response } = useSelector(
     (state) => state.responses
   );
   const { selectedMoods } = useSelector((state) => state.moods);
 
   useEffect(() => {
-    if (selectedMoods) {
-      dispatch(getResponse(selectedMoods));
+    if (selectedMoods.length < 1) {
+      navigate("/bad");
     }
-  }, []);
+    dispatch(getResponse(selectedMoods));
+  }, [dispatch, navigate, selectedMoods]);
 
   useEffect(() => {
     if (isError) {

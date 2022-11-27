@@ -36,7 +36,7 @@ function Dashboard() {
     >
       <Box
         sx={{
-          width: "100vw",
+          width: "min(100vw, 1488px)",
           minHeight: "100%",
           display: "flex",
           flexDirection: "column",
@@ -52,7 +52,7 @@ function Dashboard() {
         <Box
           sx={{
             height: "100%",
-            width: "min(90vw, 1800px)",
+            width: "min(90vw, 1488px)",
             alignSelf: "center",
             display: "flex",
             flexDirection: "column",
