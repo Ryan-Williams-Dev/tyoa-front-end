@@ -14,12 +14,12 @@ function PrimaryButton({
   return (
     <Box
       sx={{
-        ...extraStyles,
-        width: "min(400px, 87vw)",
+        width: "100%",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
         marginY: "5vh",
+        ...extraStyles,
       }}
     >
       <Button
@@ -38,7 +38,6 @@ function PrimaryButton({
         <Typography
           variant="h4"
           sx={{
-            paddingX: "2.5em",
             paddingY: "0.3em",
           }}
         >

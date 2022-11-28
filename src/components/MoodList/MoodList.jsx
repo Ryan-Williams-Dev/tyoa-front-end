@@ -25,7 +25,7 @@ function MoodList({ mood }) {
         <Box
           sx={{
             pt: "1em",
-            width: "90%",
+            width: "min(90%, 1488px)",
             display: "grid",
             gap: "1.5em",
             gridTemplateColumns: {

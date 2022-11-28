@@ -28,7 +28,12 @@ function LandingSection() {
         undertext="Don't have an account?"
         undertextBold="Sign Up"
         undertextRoute="/register"
-        extraStyles={{ gridRowStart: 3, gridRowEnd: 3, alignSelf: "center" }}
+        extraStyles={{
+          gridRowStart: 3,
+          gridRowEnd: 3,
+          alignSelf: "center",
+          width: "min(87vw, 400px)",
+        }}
       >
         Login With Email
       </PrimaryButton>

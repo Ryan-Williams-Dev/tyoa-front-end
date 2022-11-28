@@ -20,7 +20,7 @@ import LogoLink from "./LogoLink";
 import "../../styles/hamburger.css";
 
 function Header() {
-  const pages = ["Don't", "Click", "Tests"];
+  const pages = ["Home", "About"];
   const settings = ["Account", "Logout"];
 
   const navigate = useNavigate();
@@ -59,6 +59,10 @@ function Header() {
     reset();
   }, [isError, message]);
 
+  const pageRoute = (page) => {
+    return page === "Home" ? "/" : `/${page.toLowerCase()}`;
+  };
+
   return (
     <>
       <AppBar
@@ -85,7 +89,6 @@ function Header() {
                 flexGrow: 1,
                 display: { xs: "flex", md: "none" },
                 alignContent: "center",
-                justifyContent: "space-between",
               }}
             >
               <IconButton
@@ -118,12 +121,13 @@ function Header() {
                 onClose={handleCloseNavMenu}
                 sx={{
                   display: { xs: "block", md: "none" },
+                  flexGrow: 1,
                 }}
               >
                 {pages.map((page) => (
                   <MenuItem
                     component={Link}
-                    to={`/${page.toLowerCase()}`}
+                    to={pageRoute(page)}
                     key={page}
                     onClick={handleCloseNavMenu}
                     sx={{
@@ -145,18 +149,36 @@ function Header() {
                 },
               }}
               extraStylingImg={{
-                maxWidth: "45px",
+                maxWidth: {
+                  xs: "45px",
+                },
               }}
             />
 
-            <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+            <Box
+              sx={{
+                flexGrow: 1,
+                display: { xs: "none", md: "flex" },
+                gap: "5px",
+                pl: "5px",
+              }}
+            >
               {pages.map((page) => (
                 <Button
                   component={Link}
-                  to={`/${page.toLowerCase()}`}
+                  to={pageRoute(page)}
                   key={page}
                   onClick={handleCloseNavMenu}
-                  sx={{ my: 2, color: "white", display: "block" }}
+                  sx={{
+                    my: 2,
+                    color: "white",
+                    display: "block",
+                    textAlign: "center",
+                    fontSize: "1.1rem",
+                    "&:hover": {
+                      backgroundColor: "primary.light",
+                    },
+                  }}
                 >
                   {page}
                 </Button>
@@ -167,7 +189,9 @@ function Header() {
               <Box sx={{ flexGrow: 0 }}>
                 <Tooltip title="Open settings">
                   <IconButton onClick={handleOpenUserMenu} sx={{ p: "12px" }}>
-                    <Avatar alt={user.name}>{user.name.charAt(0)}</Avatar>
+                    <Avatar sx={{}} alt={user.name}>
+                      {user.name.charAt(0)}
+                    </Avatar>
                   </IconButton>
                 </Tooltip>
                 <Menu

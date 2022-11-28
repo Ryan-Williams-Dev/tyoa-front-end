@@ -5,9 +5,9 @@ function LogoLink({ extraStylingImg, extraStylingContainer }) {
   const navigate = useNavigate();
 
   return (
-    <div
+    <Box
       onClick={() => navigate("/")}
-      style={{
+      sx={{
         display: "flex",
         ...extraStylingContainer,
       }}
@@ -19,7 +19,7 @@ function LogoLink({ extraStylingImg, extraStylingContainer }) {
           ...extraStylingImg,
         }}
       />
-    </div>
+    </Box>
   );
 }
 

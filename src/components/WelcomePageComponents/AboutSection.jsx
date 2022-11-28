@@ -24,7 +24,16 @@ function AboutSection() {
       }}
     >
       <Typography variant="h2">About</Typography>
-      <Typography variant="body1" maxWidth="600px">
+      <Typography
+        variant="h6"
+        maxWidth="600px"
+        sx={{
+          fontSize: {
+            md: "1.5rem",
+            xl: "1.7rem",
+          },
+        }}
+      >
         Life is full of ups and downs. At times, a positive mentality is clear.
         At others, it's hard to frame anything in a positive light. Take Your
         Own Advice is a tool. A tool to absorb your optimistic wisdom when

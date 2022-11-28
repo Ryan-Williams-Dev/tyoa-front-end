@@ -1,5 +1,12 @@
 import { useEffect, useState } from "react";
-import { Box, CircularProgress, TextField, Typography } from "@mui/material";
+import {
+  Box,
+  CircularProgress,
+  IconButton,
+  InputAdornment,
+  TextField,
+  Typography,
+} from "@mui/material";
 import PageTitle from "../components/common/PageTitle";
 import { motion } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
@@ -87,51 +94,66 @@ function Prompt() {
         marginBottom: "1em",
       }}
     >
-      <PageTitle>
-        Hey {user.name.split(" ")[0]}, you could really help someone.
-      </PageTitle>
-
       <Box
         sx={{
-          width: "min(85vw, 500px)",
-          flexGrow: 1,
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
         }}
       >
-        <Typography
-          variant="h5"
+        <PageTitle>
+          Hey {user.name.split(" ")[0]}, you could really help someone.
+        </PageTitle>
+
+        <Box
           sx={{
-            width: "85vw",
-            marginTop: "1em",
+            width: "min(85vw, 600px)",
+            flexGrow: 1,
+            mt: {
+              md: "2em",
+            },
           }}
         >
-          {prompt}
-        </Typography>
-        <TextField
-          sx={{
-            backgroundColor: "primary.dark",
-            borderRadius: "15px",
-            marginTop: "20px",
-          }}
-          value={input}
-          onChange={(e) => handleChange(e)}
-          InputProps={{ disableUnderline: true }}
-          fullWidth
-          label={"Unleash your wisdom here"}
-          variant="filled"
-          multiline
-          minRows={15}
-          error={input.length > 500}
-          helperText={helperText}
-        />
-      </Box>
+          <Typography
+            variant="h5"
+            sx={{
+              marginTop: "1em",
+            }}
+          >
+            {prompt}
+          </Typography>
+          <TextField
+            sx={{
+              backgroundColor: "primary.dark",
+              borderRadius: "15px",
+              marginTop: "20px",
+            }}
+            value={input}
+            onChange={(e) => handleChange(e)}
+            InputProps={{ disableUnderline: true }}
+            fullWidth
+            label={"Unleash your wisdom here"}
+            variant="filled"
+            multiline
+            minRows={15}
+            error={input.length > 500}
+            helperText={helperText}
+          />
 
-      <PrimaryButton
-        buttonType="submit"
-        clickHandler={(event) => onSubmit(event, input, selectedMoods)}
-        undertext="Thanks for sharing your positivity"
-      >
-        {isLoading ? <CircularProgress /> : "Submit"}
-      </PrimaryButton>
+          <PrimaryButton
+            buttonType="submit"
+            clickHandler={(event) => onSubmit(event, input, selectedMoods)}
+            undertext="Thanks for sharing your positivity"
+            extraStyles={
+              {
+                // width: "min(85vw, 500px)",
+              }
+            }
+          >
+            {isLoading ? <CircularProgress /> : "Submit"}
+          </PrimaryButton>
+        </Box>
+      </Box>
     </Box>
   );
 }
