@@ -1,6 +1,6 @@
 import { Box, Typography } from "@mui/material";
 
-function PageTitle({ children, subText }) {
+function PageTitle({ children, subText, extraStylesContainer }) {
   return (
     <Box
       sx={{
@@ -10,6 +10,7 @@ function PageTitle({ children, subText }) {
         alignSelf: "center",
         marginY: "0.5em",
         pl: "10px",
+        ...extraStylesContainer,
       }}
     >
       <Typography variant="h3" fontFamily="Alegreya">

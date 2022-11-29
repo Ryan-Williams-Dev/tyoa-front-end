@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import PageTitle from "../components/common/PageTitle";
 import { motion } from "framer-motion";
 
@@ -20,6 +20,10 @@ function About() {
         }}
       >
         <PageTitle>About</PageTitle>
+        <Typography variant="h4" fontFamily="Alegreya">
+          External Credits
+        </Typography>
+        <Typography variant="body1">Styling inspired by..</Typography>
       </Box>
     </Box>
   );

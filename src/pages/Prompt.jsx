@@ -1,12 +1,5 @@
 import { useEffect, useState } from "react";
-import {
-  Box,
-  CircularProgress,
-  IconButton,
-  InputAdornment,
-  TextField,
-  Typography,
-} from "@mui/material";
+import { Box, CircularProgress, TextField, Typography } from "@mui/material";
 import PageTitle from "../components/common/PageTitle";
 import { motion } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
@@ -59,7 +52,7 @@ function Prompt() {
       dispatch(reset());
       navigate("/");
     }
-  }, [isError, isSuccess, message, dispatch]);
+  }, [isError, isSuccess, message, dispatch, navigate]);
 
   const onSubmit = (event) => {
     event.preventDefault();
@@ -101,9 +94,9 @@ function Prompt() {
           alignItems: "center",
         }}
       >
-        <PageTitle>
-          Hey {user.name.split(" ")[0]}, you could really help someone.
-        </PageTitle>
+        {/* <PageTitle>
+          Hey {user && user.name.split(" ")[0]}, you could really help someone.
+        </PageTitle> */}
 
         <Box
           sx={{
@@ -115,12 +108,13 @@ function Prompt() {
           }}
         >
           <Typography
-            variant="h5"
+            variant="h4"
+            fontFamily="Alegreya"
             sx={{
               marginTop: "1em",
             }}
           >
-            {prompt}
+            Hey {user && user.name.split(" ")[0]}, {prompt}
           </Typography>
           <TextField
             sx={{

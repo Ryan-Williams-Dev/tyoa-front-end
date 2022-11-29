@@ -16,9 +16,28 @@ function BigMoodCard({ children, mood }) {
         width: "100%",
         flexGrow: 1,
         borderRadius: "20px",
+        "@media not (hover: hover)": {
+          "&:hover": {
+            backgroundColor: "card.bg",
+            color: "card.bg",
+          },
+          "&:active": {
+            opacity: "0.7",
+          },
+        },
       }}
     >
-      <Typography variant="h1" color="primary">
+      <Typography
+        variant="h1"
+        color="primary"
+        sx={{
+          "@media (hover: hover)": {
+            "&:hover": {
+              color: "card.bg",
+            },
+          },
+        }}
+      >
         {children}
       </Typography>
     </Button>

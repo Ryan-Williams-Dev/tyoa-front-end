@@ -190,7 +190,7 @@ function Header() {
                 <Tooltip title="Open settings">
                   <IconButton onClick={handleOpenUserMenu} sx={{ p: "12px" }}>
                     <Avatar sx={{}} alt={user.name}>
-                      {user.name.charAt(0)}
+                      {user && user.name.charAt(0)}
                     </Avatar>
                   </IconButton>
                 </Tooltip>
