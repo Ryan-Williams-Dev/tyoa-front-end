@@ -40,13 +40,31 @@ function Response() {
         flexDirection: "column",
         alignItems: "center",
         paddingTop: "1vh",
+        gap: "1rem",
       }}
     >
-      <PageTitle subText={"Here's some advice that may help you out"}>
+      <PageTitle
+        extraStylesContainer={{
+          width: "min(90vw, 600px)",
+        }}
+        subText={"Here's some advice that may help you out"}
+      >
         Sorry to hear that.
       </PageTitle>
       {isLoading && <LoadingDiv />}
-      {response && <Typography>{response.text}</Typography>}
+      {response && (
+        <Typography
+          variant="h4"
+          sx={{
+            width: "min(90vw, 600px)",
+            backgroundColor: "primary.dark",
+            padding: "20px",
+            borderRadius: 10,
+          }}
+        >
+          {response.text}
+        </Typography>
+      )}
     </Box>
   );
 }
