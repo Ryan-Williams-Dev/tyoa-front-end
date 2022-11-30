@@ -15,7 +15,7 @@ const promptMaker = (moods, selectedMoods) => {
       ? mood.promptFormat
       : mood.bad.toLowerCase();
 
-    if (length === 1) {
+    if (length === 1 || (i === 0 && length === 2)) {
       result += ` ${moodString}`;
     } else if (i === length - 1 && length > 1) {
       result += ` and ${moodString}`;
