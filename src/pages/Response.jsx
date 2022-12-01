@@ -15,6 +15,7 @@ function Response() {
     (state) => state.responses
   );
   const { selectedMoods } = useSelector((state) => state.moods);
+  const { user } = useSelector((state) => state.auth);
 
   useEffect(() => {
     if (selectedMoods.length < 1) {
@@ -47,7 +48,9 @@ function Response() {
         extraStylesContainer={{
           width: "min(90vw, 600px)",
         }}
-        subText={"Here's some advice that may help you out"}
+        subText={`Here's some advice from ${
+          user && user._id === response.user ? "yourself" : "a stranger"
+        } that may help you out`}
       >
         Sorry to hear that.
       </PageTitle>
@@ -55,11 +58,13 @@ function Response() {
       {response && (
         <Typography
           variant="h4"
+          color="primary"
           sx={{
             width: "min(90vw, 600px)",
-            backgroundColor: "primary.dark",
+            backgroundColor: "card.bg",
             padding: "20px",
             borderRadius: 10,
+            mb: "2rem",
           }}
         >
           {response.text}
