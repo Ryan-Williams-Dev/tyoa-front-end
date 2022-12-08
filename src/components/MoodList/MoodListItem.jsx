@@ -1,13 +1,22 @@
 import { Box, Typography } from "@mui/material";
+import { motion } from "framer-motion";
 
 function MoodListItem({
   children,
   isSelected,
   selectMoodHandler,
   deselectMoodHandler,
+  delay,
 }) {
   return (
     <Box
+      component={motion.li}
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 50 }}
+      transition={{ delay }}
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
       onClick={isSelected ? deselectMoodHandler : selectMoodHandler}
       sx={{
         display: "flex",

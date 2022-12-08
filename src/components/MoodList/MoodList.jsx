@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
 import { selectMood, deselectMood } from "../../features/moods/moodsSlice";
+import { motion } from "framer-motion";
 
 function MoodList({ mood }) {
   const dispatch = useDispatch();
@@ -23,6 +24,7 @@ function MoodList({ mood }) {
       {isLoading && <LoadingDiv>Fetching emotions...</LoadingDiv>}
       {moods && (
         <Box
+          component={motion.ul}
           sx={{
             pt: "1em",
             width: "min(90%, 1488px)",
@@ -35,15 +37,17 @@ function MoodList({ mood }) {
             },
           }}
         >
-          {moods.map((element) => {
+          {moods.map((element, i) => {
             const moodName = element[mood];
             const moodId = element._id;
+            const delay = i * 0.05;
             return (
               <MoodListItem
                 isSelected={selectedMoods.includes(moodId)}
                 selectMoodHandler={() => dispatch(selectMood(moodId))}
                 deselectMoodHandler={() => dispatch(deselectMood(moodId))}
                 key={moodId}
+                delay={delay}
               >
                 {moodName}
               </MoodListItem>

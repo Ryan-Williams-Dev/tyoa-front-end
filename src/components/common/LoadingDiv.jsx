@@ -31,9 +31,9 @@ function LoadingDiv({ children }) {
             width: "80vw",
           }}
         >
-          The back-end of this application is running on a free heroku plan,
-          thus may be a little slow to start up. If this loading screen takes a
-          while don't worry.
+          The back-end of this application is running on an eco heroku plan,
+          thus may be a little slow to start up due to sleeping. If this loading
+          screen takes a while don't worry.
           <br /> Thank you for your patience.
         </Typography>
       )}
