@@ -11,9 +11,9 @@ function MoodListItem({
   return (
     <Box
       component={motion.li}
-      initial={{ opacity: 0, y: 50 }}
+      initial={{ opacity: 0, y: 35 }}
       animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: 50 }}
+      exit={{ opacity: 0, y: 35 }}
       transition={{ delay }}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}

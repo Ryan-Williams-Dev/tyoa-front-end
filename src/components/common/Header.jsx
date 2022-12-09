@@ -20,8 +20,8 @@ import LogoLink from "./LogoLink";
 import "../../styles/hamburger.css";
 
 function Header() {
-  const pages = ["Home", "About"];
-  const settings = ["Account", "Logout"];
+  const pages = ["Home", "About", "Contact"];
+  const settings = ["Logout"];
 
   const navigate = useNavigate();
   const dispatch = useDispatch();

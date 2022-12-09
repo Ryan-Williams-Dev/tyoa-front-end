@@ -11,6 +11,7 @@ import DescriptorParamCheckWrapper from "./DescriptorParamCheckWrapper";
 import Prompt from "../../pages/Prompt";
 import Response from "../../pages/Response";
 import About from "../../pages/About";
+import ContactMe from "../../pages/ContactMe";
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -32,6 +33,7 @@ function AnimatedRoutes() {
           <Route path="/prompt" element={<Prompt />} />
           <Route path="/response" element={<Response />} />
           <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<ContactMe />} />
         </Route>
       </Routes>
     </AnimatePresence>

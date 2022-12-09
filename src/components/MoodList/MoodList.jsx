@@ -40,7 +40,7 @@ function MoodList({ mood }) {
           {moods.map((element, i) => {
             const moodName = element[mood];
             const moodId = element._id;
-            const delay = i * 0.05;
+            const delay = i * 0.07;
             return (
               <MoodListItem
                 isSelected={selectedMoods.includes(moodId)}
