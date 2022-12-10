@@ -30,6 +30,14 @@ function Response() {
     }
   }, [isError, message]);
 
+  let titleSubtext = "Sorry, we do not have any matching advice right now.";
+
+  if (response && response.text) {
+    titleSubtext = `Here's some advice from ${
+      user && user._id === response.user ? "yourself" : "a stranger"
+    } that may help you out`;
+  }
+
   return (
     <Box
       component={motion.div}
@@ -48,18 +56,12 @@ function Response() {
         extraStylesContainer={{
           width: "min(90vw, 600px)",
         }}
-        subText={
-          response.text
-            ? `Here's some advice from ${
-                user && user._id === response.user ? "yourself" : "a stranger"
-              } that may help you out`
-            : "Sorry, we do not have any matching advice right now."
-        }
+        subText={titleSubtext}
       >
         Sorry to hear that.
       </PageTitle>
       {isLoading && <LoadingDiv />}
-      {response.text && (
+      {response && response.text && (
         <Typography
           variant="h4"
           color="primary"
