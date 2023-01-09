@@ -52,6 +52,7 @@ export default function ContactMe() {
           <div style={alignIcon}>
             <FaLinkedin />{" "}
             <a
+              target="_blank"
               style={{ color: "white" }}
               href="https://www.linkedin.com/in/ryan-williams-dev/"
             >
@@ -62,6 +63,7 @@ export default function ContactMe() {
           <div style={alignIcon}>
             <FaGithubSquare />{" "}
             <a
+              target="_blank"
               style={{ color: "white" }}
               href="https://github.com/Ryan-Williams-Dev"
             >
@@ -73,7 +75,11 @@ export default function ContactMe() {
           Email me directly
         </Typography>
         <InfoCard>
-          <a href="RyanWilliams.WorkMail@gmail.com" style={{ color: "white" }}>
+          <a
+            target="_blank"
+            href="RyanWilliams.WorkMail@gmail.com"
+            style={{ color: "white" }}
+          >
             RyanWilliams.WorkMail@gmail.com
           </a>
         </InfoCard>
