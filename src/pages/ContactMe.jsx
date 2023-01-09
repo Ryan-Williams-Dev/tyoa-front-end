@@ -76,8 +76,7 @@ export default function ContactMe() {
         </Typography>
         <InfoCard>
           <a
-            target="_blank"
-            href="RyanWilliams.WorkMail@gmail.com"
+            href="mailto: RyanWilliams.WorkMail@gmail.com"
             style={{ color: "white" }}
           >
             RyanWilliams.WorkMail@gmail.com
