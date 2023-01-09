@@ -48,6 +48,7 @@ function About() {
         </Typography>
         <InfoCard>
           <a
+            target="_blank"
             style={{
               color: "white",
             }}
@@ -58,6 +59,7 @@ function About() {
           <br />
           <br />
           <a
+            target="_blank"
             style={{
               color: "white",
             }}
@@ -72,6 +74,7 @@ function About() {
         <InfoCard>
           Styling inspired by{" "}
           <a
+            target="_blank"
             style={{
               color: "white",
             }}
